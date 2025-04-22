@@ -1,0 +1,19 @@
+- defaults:
+    link:
+      relink: true
+      create: true
+- link:
+    ~/.clang-format: cpp/clang-format
+
+    ~/.isort.cfg: python/isort.cfg
+    $XDG_CONFIG_HOME/black: python/black
+    $XDG_CONFIG_HOME/mypy/config: python/mypy.ini
+    $XDG_CONFIG_HOME/pycodestyle: python/pycodestyle
+
+    # do not link the folder itself so that the rest of the files, such as plugins do not drag
+    $XDG_CONFIG_HOME/vim/vimrc: vim/vimrc
+    $XDG_CONFIG_HOME/vim/settings/: vim/settings/
+
+    $XDG_CONFIG_HOME/ycm_extra_conf/: ycm_extra_conf
+
+    ~/.zshenv: zsh/zshenv
