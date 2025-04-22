@@ -212,5 +212,6 @@ cmake-build-debug
 # Vim
 vim/**/*
 !vim/vimrc
+!vim/settings
 !vim/settings/shortcuts.vim
 !vim/settings/functions.vim
