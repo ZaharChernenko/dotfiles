@@ -27,12 +27,15 @@ map а f
 map в d
 map г u
 map д l
+map з p
 map й q
 map к r
 map л k
 map м v
+map н y
 map о j
 map р h
+map с c
 map у e
 map ф a
 map ц w
