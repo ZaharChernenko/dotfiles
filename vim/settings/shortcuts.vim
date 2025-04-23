@@ -91,6 +91,12 @@ if has('macunix')
   tnoremap <C-л> <up>
   tnoremap <C-о> <down>
   tnoremap <C-д> <right>
+  " deletion
+  inoremap <C-d> <Bs>
+  tnoremap <C-d> <Bs>
+  " russian
+  inoremap <C-в> <Bs>
+  tnoremap <C-в> <Bs>
   " wintabs
   noremap <silent> <D-h> :WintabsPrevious<CR>
   noremap <silent> <D-l> :WintabsNext<CR>
