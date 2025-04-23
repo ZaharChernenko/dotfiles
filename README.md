@@ -3,6 +3,7 @@
   - [installation](#installation)
 ## installation
 ```shell
-poetry install
+uv sync
+source .venv/bin/activate
 dotbot -c install.conf.yaml
 ```
