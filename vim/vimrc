@@ -55,6 +55,7 @@ colorscheme catppuccin-mocha
 
 filetype plugin indent on " enable filetype detecting, indents and plugins loading
 " set is used for setting internal vim variables
+set belloff=all
 set colorcolumn=100 " show a vertical line at column 100
 set completeopt-=preview " disable preview window
 set display+=lastline " for long lines

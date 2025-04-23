@@ -1,55 +1,50 @@
 let g:SuperTabMappingBackward = '<tab>'
-" studying default shortcuts, start with hjkl movement
-noremap d <NOP>
-noremap s <NOP>
 " moving in normal mode
-noremap q ge
-noremap Q ^
 noremap E g_
-" start of the next word
-noremap f w
-noremap F W
-" передвижение в нормальном режиме русские клавиши, почти везде map, чтобы
-" можно было использовать кириллицу в nerdtree, не nmap, т.к. иначе не будет
-" ничего работать в визуальном режиме
-map р h
-map о j
-map л k
-map д l
-map ф a
-map Ф A
-map ц w
-map Ц W
-map ы s
-map Ы S
-map в d
-map В D
-map у e
-map пп gg
-map П G
-map Х {
-map Ъ }
-map Ж :
-map щ o
-map й ge
-map Й ^
-map У g_
-map ь m
-map а f
+noremap Q ^
+noremap q ge
+" movement in normal mode is Russian keys, map almost everywhere, so
+" that cyrillic can be used in nerdtree, not nmap, because otherwise
+" nothing will work in visual mode
 map А F
-" commands
-map ч x
-map Ч X
-
-map м v
-map М V
-map ш i
-map Ш I
-map г u
+map В D
 map Г U
-" tabs like vs code
-vnoremap <S-Tab> <gv
+map Ж :
+map Й ^
+map К R
+map М V
+map П G
+map У g_
+map Ф A
+map Х {
+map Ц W
+map Ч X
+map Ш I
+map Ъ }
+map Ы S
+
+map а f
+map в d
+map г u
+map д l
+map й q
+map к r
+map л k
+map м v
+map о j
+map р h
+map у e
+map ф a
+map ц w
+map ч x
+map ш i
+map щ o
+map ь m
+map ы s
+map пп gg
+" tabs edit like vs code
 vnoremap <Tab> >gv
+vnoremap <S-Tab> <gv
 " vimspector
 noremap ;t :call vimspector#ToggleBreakpoint()<CR>
 noremap ;c :call vimspector#ClearBreakpoints()<CR>
@@ -64,7 +59,17 @@ noremap <F2> :YcmCompleter RefactorRename<Space>
 inoremap <F2> <Esc>:YcmCompleter RefactorRename<Space>
 if has('macunix')
   let g:SuperTabMappingForward = '<C-tab>'
+  " russian specific
+  inoremap <C-с> <Esc>
+  noremap <C-ц>р <C-w>h
+  noremap <C-ц>л <C-w>k
+  noremap <C-ц>о <C-w>j
+  noremap <C-ц>д <C-w>l
   " moving in buffer
+  noremap <C-h> <left>
+  noremap <C-k> <up>
+  noremap <C-j> <down>
+  noremap <C-l> <right>
   inoremap <C-h> <left>
   inoremap <C-k> <up>
   inoremap <C-j> <down>
@@ -73,45 +78,71 @@ if has('macunix')
   tnoremap <C-k> <up>
   tnoremap <C-j> <down>
   tnoremap <C-l> <right>
-  " moving between buffers
-  noremap <silent> <C-k> :wincmd k<CR>
-  noremap <silent> <C-h> :wincmd h<CR>
-  noremap <silent> <C-j> :wincmd j<CR>
-  noremap <silent> <C-l> :wincmd l<CR>
+  " russian
+  noremap <C-р> <left>
+  noremap <C-л> <up>
+  noremap <C-о> <down>
+  noremap <C-д> <right>
+  inoremap <C-р> <left>
+  inoremap <C-л> <up>
+  inoremap <C-о> <down>
+  inoremap <C-д> <right>
+  tnoremap <C-р> <left>
+  tnoremap <C-л> <up>
+  tnoremap <C-о> <down>
+  tnoremap <C-д> <right>
+  " wintabs
   noremap <silent> <D-h> :WintabsPrevious<CR>
   noremap <silent> <D-l> :WintabsNext<CR>
-  " closing buffers
   noremap <silent> <D-w> :WintabsClose<CR>
   inoremap <silent> <D-w> <Esc>:WintabsClose<CR>
-  " terminal
+  noremap <silent> <D-р> :WintabsPrevious<CR>
+  noremap <silent> <D-д> :WintabsNext<CR>
+  noremap <silent> <D-ц> :WintabsClose<CR>
+  inoremap <silent> <D-ц> <Esc>:WintabsClose<CR>
+  " floaterm
   autocmd FileType floaterm noremap <buffer> <silent> <ScrollWheelUp> :call ScrollUp()<CR>
   autocmd FileType floaterm noremap <buffer> <silent> <ScrollWheelDown> :call ScrollDown()<CR>
+  autocmd FileType floaterm tnoremap <buffer> <silent> <ScrollWheelUp> <C-\><C-n>:call ScrollUp()<CR>
+  autocmd FileType floaterm tnoremap <buffer> <silent> <ScrollWheelDown> <C-\><C-n>:call ScrollDown()<CR>
   autocmd FileType floaterm noremap <buffer> <silent> <D-h> :FloatermPrev<CR>
   autocmd FileType floaterm noremap <buffer> <silent> <D-l> :FloatermNext<CR>
   autocmd FileType floaterm noremap <buffer> <silent> <D-t> :FloatermNew<CR>
-  autocmd FileType floaterm tnoremap <buffer> <silent> <ScrollWheelUp> <C-\><C-n>:call ScrollUp()<CR>
-  autocmd FileType floaterm tnoremap <buffer> <silent> <ScrollWheelDown> <C-\><C-n>:call ScrollDown()<CR>
   autocmd FileType floaterm tnoremap <buffer> <silent> <D-h> <C-\><C-n>:FloatermPrev<CR>
   autocmd FileType floaterm tnoremap <buffer> <silent> <D-l> <C-\><C-n>:FloatermNext<CR>
   autocmd FileType floaterm tnoremap <buffer> <silent> <D-t> <C-\><C-n>:FloatermNew<CR>
-  tnoremap <silent> <C-t> <C-\><C-n>:FloatermToggle<CR>
   noremap <silent> <C-t> :FloatermToggle<CR>
   inoremap <silent> <C-t> <Esc>:FloatermToggle<CR>
+  tnoremap <silent> <C-t> <C-\><C-n>:FloatermToggle<CR>
+  " russian
+  autocmd FileType floaterm noremap <buffer> <silent> <D-р> :FloatermPrev<CR>
+  autocmd FileType floaterm noremap <buffer> <silent> <D-д> :FloatermNext<CR>
+  autocmd FileType floaterm noremap <buffer> <silent> <D-е> :FloatermNew<CR>
+  autocmd FileType floaterm tnoremap <buffer> <silent> <D-р> <C-\><C-n>:FloatermPrev<CR>
+  autocmd FileType floaterm tnoremap <buffer> <silent> <D-д> <C-\><C-n>:FloatermNext<CR>
+  autocmd FileType floaterm tnoremap <buffer> <silent> <D-е> <C-\><C-n>:FloatermNew<CR>
+  noremap <silent> <C-е> :FloatermToggle<CR>
+  inoremap <silent> <C-е> <Esc>:FloatermToggle<CR>
+  tnoremap <silent> <C-е> <C-\><C-n>:FloatermToggle<CR>
   " fzf
   " this two due to the fact that the side scroll is perceived as vertical
   autocmd FileType fzf tnoremap <buffer> <silent> <ScrollWheelRight> <NOP>
   autocmd FileType fzf tnoremap <buffer> <silent> <ScrollWheelLeft> <NOP>
-  autocmd FileType fzf tnoremap <buffer> <C-a> <left>
-  autocmd FileType fzf tnoremap <buffer> <C-w> <up>
-  autocmd FileType fzf tnoremap <buffer> <C-s> <down>
-  autocmd FileType fzf tnoremap <buffer> <C-d> <right>
   autocmd FileType fzf tnoremap <buffer> <C-t> <ESC>
+  " russian
+  autocmd FileType fzf tnoremap <buffer> <C-е> <ESC>
   " NerdTree
   noremap <silent> <C-e> :NERDTreeToggle<CR>
   inoremap <silent> <C-e> <Esc>:NERDTreeToggle<CR>i
+  " russian
+  noremap <silent> <C-у> :NERDTreeToggle<CR>
+  inoremap <silent> <C-у> <Esc>:NERDTreeToggle<CR>i
   " code run
   noremap <silent> <C-r> :call coderunner#Run()<CR>
   inoremap <silent> <C-r> <Esc>:call coderunner#Run()<CR>
+  " russian
+  noremap <silent> <C-к> :call coderunner#Run()<CR>
+  inoremap <silent> <C-к> <Esc>:call coderunner#Run()<CR>
 else
   if has("gui_running")
     let g:SuperTabMappingForward = '<A-tab>'

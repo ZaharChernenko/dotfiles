@@ -24,9 +24,6 @@ function PostSetup()
     cd %:p:h
     " Start NERDTree and put the cursor back in the other window.
     NERDTree | wincmd p
-    " if you don't disable this combination, then the second key will be expected in visual mode
-    " check it by launch :verbose map a
-    unmap a%
 endfunction
 
 
