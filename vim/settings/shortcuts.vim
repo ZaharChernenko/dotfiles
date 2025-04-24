@@ -10,11 +10,11 @@ map А F
 map В D
 map Г U
 map Ж :
-map Й ^
+map Й Q
 map К R
 map М V
 map П G
-map У g_
+map У E
 map Ф A
 map Х {
 map Ц W
