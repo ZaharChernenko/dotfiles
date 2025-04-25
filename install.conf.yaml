@@ -6,9 +6,11 @@
     ~/.clang-format: cpp/clang-format
 
     ~/.isort.cfg: python/isort.cfg
+    ~/.pylintrc: python/pylintrc
     $XDG_CONFIG_HOME/black: python/black
     $XDG_CONFIG_HOME/mypy/config: python/mypy.ini
     $XDG_CONFIG_HOME/pycodestyle: python/pycodestyle
+    $XDG_CONFIG_HOME/ruff/ruff.toml: python/ruff.toml
 
     # do not link the folder itself so that the rest of the files, such as plugins do not drag
     $XDG_CONFIG_HOME/vim/vimrc: vim/vimrc

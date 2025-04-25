@@ -105,12 +105,12 @@ highlight clear ALEWarningSign
 let g:ale_completion_enabled = 0
 let g:ale_fixers = {
     \ '*': ['trim_whitespace', 'remove_trailing_lines'],
-    \ 'python': ['black', 'isort'],
+    \ 'python': ['ruff_format', 'isort'],
     \ 'cpp': ['clang-format']
 \ }
 let g:ale_fix_on_save = 1
 let g:ale_linters = {
-    \ 'python': ['pylint', 'mypy'],
+    \ 'python': ['pylint', 'mypy', 'ruff'],
     \ 'cpp': ['cppcheck'],
 \ }
 let g:ale_lint_on_save = 1
