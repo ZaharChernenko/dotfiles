@@ -13,6 +13,7 @@ inoremap <C-j> <down>
 inoremap <C-l> <right>
 inoremap <C-d> <Bs>
 inoremap <C-c> <Esc>
+
 " russian
 map А F
 map В D

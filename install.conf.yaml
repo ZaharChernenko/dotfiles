@@ -12,6 +12,7 @@
     $XDG_CONFIG_HOME/pycodestyle: python/pycodestyle
     $XDG_CONFIG_HOME/ruff/ruff.toml: python/ruff.toml
 
+    $XDG_CONFIG_HOME/third_party_vimrc: third_party_vimrc
     # do not link the folder itself so that the rest of the files, such as plugins do not drag
     $XDG_CONFIG_HOME/vim/vimrc: vim/vimrc
     $XDG_CONFIG_HOME/vim/settings/: vim/settings/

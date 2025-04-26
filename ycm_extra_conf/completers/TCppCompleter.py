@@ -3,9 +3,9 @@ import os
 import sysconfig
 import typing
 
+import path_utils
 import ycm_core
 
-import path_utils
 from completers import ICompleter
 
 

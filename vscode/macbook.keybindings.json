@@ -31,18 +31,6 @@
         "when": "editorTextFocus && vim.active && !inDebugRepl && vim.mode != 'Insert'"
     },
 
-    // g g bind, because not ascii symbols are not interpereted correctly in vs code vim
-    {
-        "key": "g g",
-        "command": "list.focusFirst",
-        "when": "listFocus && !inputFocus"
-    },
-    {
-        "key": "g g",
-        "command": "cursorTop",
-        "when": "editorTextFocus && vim.active && !inDebugRepl && vim.mode != 'Insert'"
-    },
-
     // moving between buffers, just rebind vim <C-w>+movement, because it works weird
     {
         "key": "ctrl+w h",

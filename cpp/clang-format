@@ -18,4 +18,3 @@ PointerAlignment: Left
 # PackConstructorInitializers: NextLineOnly
 QualifierAlignment: Custom
 QualifierOrder: [friend, static, inline, constexpr, const, volatile, type]
-
