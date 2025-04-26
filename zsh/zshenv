@@ -1,1 +1,4 @@
-export XDG_CONFIG_HOME="$HOME/.dotfiles"
+export XDG_CONFIG_HOME="${HOME}/.dotfiles"
+
+# uv
+export PATH="${HOME}/.local/bin:${PATH}"
