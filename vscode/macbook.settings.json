@@ -121,9 +121,6 @@
     "vim.normalModeKeyBindingsNonRecursive": [
         {"before": ["g", "d"], "commands": ["editor.action.revealDefinition"]},
     ],
-    "vim.visualModeKeyBindingsNonRecursive": [
-        {"before": ["E"], "after": ["g", "_"]},
-    ],
     // completion
     "emmet.triggerExpansionOnTab": true,        // использование emmet
     // "emmet.useInlineCompletions": false,

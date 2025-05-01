@@ -1,4 +1,5 @@
-noremap E $
+" noremap E $ for obsidian
+noremap E g_
 noremap Q ^
 noremap q ge
 
