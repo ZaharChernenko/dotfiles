@@ -19,5 +19,6 @@
 
     $XDG_CONFIG_HOME/ycm_extra_conf/: ycm_extra_conf
 
+    ~/.p10k.zsh: zsh/p10k.zsh
     ~/.zshenv: zsh/zshenv
     ~/.zshrc: zsh/zshrc
