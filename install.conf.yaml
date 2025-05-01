@@ -20,3 +20,4 @@
     $XDG_CONFIG_HOME/ycm_extra_conf/: ycm_extra_conf
 
     ~/.zshenv: zsh/zshenv
+    ~/.zshrc: zsh/zshrc

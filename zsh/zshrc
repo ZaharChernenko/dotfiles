@@ -1,0 +1,18 @@
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+source ~/.zplug/init.zsh
+# without oh-my-zsh history-substring-search doesn't work
+zplug "robbyrussell/oh-my-zsh", as:plugin, use:"lib/*.zsh"
+zplug "romkatv/powerlevel10k",  as:theme, depth:1
+zplug "plugins/colored-man-pages", from:oh-my-zsh
+# virtual-text suggestion based on history
+zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-completions"
+zplug "zsh-users/zsh-history-substring-search"
+zplug "zdharma/fast-syntax-highlighting"
+zplug check || zplug install
+zplug load
+
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

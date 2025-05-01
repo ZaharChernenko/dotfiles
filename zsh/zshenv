@@ -1,2 +1,3 @@
 export XDG_CONFIG_HOME="${HOME}/.dotfiles"
-export PATH="${PATH}:${HOME}/.local/bin" # uv
+# `uv tool install` packages
+export PATH="${PATH}:${HOME}/.local/bin"
