@@ -64,10 +64,14 @@ if has('macunix')
   let g:SuperTabMappingForward = '<C-tab>'
   " russian specific
   inoremap <C-с> <Esc>
-  noremap <C-ц>р <C-w>h
-  noremap <C-ц>л <C-w>k
-  noremap <C-ц>о <C-w>j
-  noremap <C-ц>д <C-w>l
+  noremap <C-w>р <C-w>h
+  noremap <C-w>л <C-w>k
+  noremap <C-w>о <C-w>j
+  noremap <C-w>д <C-w>l
+  tnoremap <C-w>р <C-w>h
+  tnoremap <C-w>л <C-w>k
+  tnoremap <C-w>о <C-w>j
+  tnoremap <C-w>д <C-w>l
   " moving in buffer
   noremap <C-h> <left>
   noremap <C-k> <up>
