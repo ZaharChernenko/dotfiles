@@ -56,14 +56,24 @@ map ь m
 map ы s
 map пп gg
 
+noremap <C-с> <Esc>
+inoremap <C-с> <Esc>
+
+noremap <C-w>р <C-w>h
+noremap <C-w>л <C-w>k
+noremap <C-w>о <C-w>j
+noremap <C-w>д <C-w>l
+tnoremap <C-w>р <C-w>h
+tnoremap <C-w>л <C-w>k
+tnoremap <C-w>о <C-w>j
+tnoremap <C-w>д <C-w>l
+
 noremap <C-р> <left>
 noremap <C-л> <up>
 noremap <C-о> <down>
 noremap <C-д> <right>
-noremap <C-с> <Esc>
+
 inoremap <C-р> <left>
 inoremap <C-л> <up>
 inoremap <C-о> <down>
 inoremap <C-д> <right>
-inoremap <C-в> <Bs>
-inoremap <C-с> <Esc>

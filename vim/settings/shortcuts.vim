@@ -63,11 +63,14 @@ inoremap <F2> <Esc>:YcmCompleter RefactorRename<Space>
 if has('macunix')
   let g:SuperTabMappingForward = '<C-tab>'
   " russian specific
-  inoremap <C-с> <Esc>
+  noremap <C-с> <Esc>
   noremap <C-w>р <C-w>h
   noremap <C-w>л <C-w>k
   noremap <C-w>о <C-w>j
   noremap <C-w>д <C-w>l
+
+  inoremap <C-с> <Esc>
+
   tnoremap <C-w>р <C-w>h
   tnoremap <C-w>л <C-w>k
   tnoremap <C-w>о <C-w>j
@@ -98,12 +101,6 @@ if has('macunix')
   tnoremap <C-л> <up>
   tnoremap <C-о> <down>
   tnoremap <C-д> <right>
-  " deletion
-  inoremap <C-d> <Bs>
-  tnoremap <C-d> <Bs>
-  " russian
-  inoremap <C-в> <Bs>
-  tnoremap <C-в> <Bs>
   " wintabs
   noremap <silent> <D-h> :WintabsPrevious<CR>
   noremap <silent> <D-l> :WintabsNext<CR>
