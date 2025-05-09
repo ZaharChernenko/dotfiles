@@ -3,13 +3,13 @@ import os
 import sysconfig
 import typing
 
-import path_utils
 import ycm_core
 
-from completers import ICompleter
+import path_utils
+from completers import interface
 
 
-class TCppCompleter(ICompleter):
+class TCppCompleter(interface.ICompleter):
     DATABASE_NODES: typing.Final[tuple[str, ...]] = (
         os.path.normpath("build/Debug/compile_commands.json"),
         os.path.normpath("build/Release/compile_commands.json"),

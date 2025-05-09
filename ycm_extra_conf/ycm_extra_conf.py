@@ -4,8 +4,8 @@ import sys
 if (module_dir := os.path.dirname(os.path.abspath(__file__))) not in sys.path:
     sys.path.insert(0, module_dir)
 
-from TCompleterContext import TCompleterContext
+import completer_context as ctx
 
 
 def Settings(**kwargs):
-    return TCompleterContext.complete(**kwargs)
+    return ctx.TCompleterContext.complete(**kwargs)

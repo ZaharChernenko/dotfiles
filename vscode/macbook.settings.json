@@ -111,7 +111,7 @@
     "python.defaultInterpreterPath": "/Library/Frameworks/Python.framework/Versions/3.12/bin/python3-intel64",
 
     "vim.vimrc.enable": true,
-    "vim.vimrc.path": "Users/zahar/.dotfiles/third_party_vimrc/macbook.vimrc",
+    "vim.vimrc.path": "~/.dotfiles/third_party_vimrc/macbook.vimrc",
     "vim.handleKeys": {
         "<C-s>": true,
         "<C-t>": false,

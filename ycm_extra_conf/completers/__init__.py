@@ -1,3 +1,3 @@
-from completers.ICompleter import ICompleter
-from completers.TCppCompleter import TClangCompleter, TClangdCompleter
-from completers.TPythonCompleter import TPythonCompleter
+from completers.cpp import TClangCompleter, TClangdCompleter
+from completers.interface import ICompleter
+from completers.python import TPythonCompleter

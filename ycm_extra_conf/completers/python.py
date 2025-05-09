@@ -2,10 +2,11 @@ import os
 import typing
 
 import path_utils
-from completers import ICompleter
+
+from completers import interface
 
 
-class TPythonCompleter(ICompleter):
+class TPythonCompleter(interface.ICompleter):
     VENV_NODES: typing.Final[tuple[str, ...]] = (
         os.path.normpath(".venv/bin/python3"),
         os.path.normpath("venv/bin/python3"),
