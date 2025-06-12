@@ -49,17 +49,17 @@ map пп gg
 vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
 " vimspector
-noremap ;t :call vimspector#ToggleBreakpoint()<CR>
-noremap ;c :call vimspector#ClearBreakpoints()<CR>
-noremap ;r :wa<CR>:call vimspector#Launch()<CR>
-noremap же :call vimspector#ToggleBreakpoint()<CR>
-noremap жс :call vimspector#ClearBreakpoints()<CR>
-noremap жк :wa<CR>:call vimspector#Launch()<CR>
+noremap ;t <CMD>call vimspector#ToggleBreakpoint()<CR>
+noremap ;c <CMD>call vimspector#ClearBreakpoints()<CR>
+noremap ;r <CMD>wa<CR><CMD>call vimspector#Launch()<CR>
+noremap же <CMD>call vimspector#ToggleBreakpoint()<CR>
+noremap жс <CMD>call vimspector#ClearBreakpoints()<CR>
+noremap жк <CMD>wa<CR><CMD>call vimspector#Launch()<CR>
 " ycm
-noremap gd :YcmCompleter GoTo<CR>
-noremap пв :YcmCompleter GoTo<CR>
-noremap <F2> :YcmCompleter RefactorRename<Space>
-inoremap <F2> <Esc>:YcmCompleter RefactorRename<Space>
+noremap gd <CMD>YcmCompleter GoTo<CR>
+noremap пв <CMD>YcmCompleter GoTo<CR>
+noremap <F2> <CMD>YcmCompleter RefactorRename<Space>
+inoremap <F2> <CMD>YcmCompleter RefactorRename<Space>
 if has('macunix')
   let g:SuperTabMappingForward = '<C-tab>'
   " russian specific
@@ -102,38 +102,39 @@ if has('macunix')
   tnoremap <C-о> <down>
   tnoremap <C-д> <right>
   " wintabs
-  noremap <silent> <D-h> :WintabsPrevious<CR>
-  noremap <silent> <D-l> :WintabsNext<CR>
-  noremap <silent> <D-w> :WintabsClose<CR>
-  inoremap <silent> <D-w> <Esc>:WintabsClose<CR>
-  noremap <silent> <D-р> :WintabsPrevious<CR>
-  noremap <silent> <D-д> :WintabsNext<CR>
-  noremap <silent> <D-ц> :WintabsClose<CR>
-  inoremap <silent> <D-ц> <Esc>:WintabsClose<CR>
+  noremap <silent> <D-h> <CMD>WintabsPrevious<CR>
+  noremap <silent> <D-l> <CMD>WintabsNext<CR>
+  noremap <silent> <D-w> <CMD>WintabsClose<CR>
+  inoremap <silent> <D-w> <CMD>WintabsClose<CR>
+  " russian
+  noremap <silent> <D-р> <CMD>WintabsPrevious<CR>
+  noremap <silent> <D-д> <CMD>WintabsNext<CR>
+  noremap <silent> <D-ц> <CMD>WintabsClose<CR>
+  inoremap <silent> <D-ц> <CMD>WintabsClose<CR>
   " floaterm
-  autocmd FileType floaterm noremap <buffer> <silent> <ScrollWheelUp> :call ScrollUp()<CR>
-  autocmd FileType floaterm noremap <buffer> <silent> <ScrollWheelDown> :call ScrollDown()<CR>
+  autocmd FileType floaterm noremap <buffer> <silent> <ScrollWheelUp> <CMD>call ScrollUp()<CR>
+  autocmd FileType floaterm noremap <buffer> <silent> <ScrollWheelDown> <CMD>call ScrollDown()<CR>
   autocmd FileType floaterm tnoremap <buffer> <silent> <ScrollWheelUp> <C-\><C-n>:call ScrollUp()<CR>
   autocmd FileType floaterm tnoremap <buffer> <silent> <ScrollWheelDown> <C-\><C-n>:call ScrollDown()<CR>
-  autocmd FileType floaterm noremap <buffer> <silent> <D-h> :FloatermPrev<CR>
-  autocmd FileType floaterm noremap <buffer> <silent> <D-l> :FloatermNext<CR>
-  autocmd FileType floaterm noremap <buffer> <silent> <D-t> :FloatermNew<CR>
-  autocmd FileType floaterm tnoremap <buffer> <silent> <D-h> <C-\><C-n>:FloatermPrev<CR>
-  autocmd FileType floaterm tnoremap <buffer> <silent> <D-l> <C-\><C-n>:FloatermNext<CR>
-  autocmd FileType floaterm tnoremap <buffer> <silent> <D-t> <C-\><C-n>:FloatermNew<CR>
-  noremap <silent> <C-t> :FloatermToggle<CR>
-  inoremap <silent> <C-t> <Esc>:FloatermToggle<CR>
-  tnoremap <silent> <C-t> <C-\><C-n>:FloatermToggle<CR>
+  autocmd FileType floaterm noremap <buffer> <silent> <D-h> <CMD>FloatermPrev<CR>
+  autocmd FileType floaterm noremap <buffer> <silent> <D-l> <CMD>FloatermNext<CR>
+  autocmd FileType floaterm noremap <buffer> <silent> <D-t> <CMD>FloatermNew<CR>
+  autocmd FileType floaterm tnoremap <buffer> <silent> <D-h> <CMD>FloatermPrev<CR>
+  autocmd FileType floaterm tnoremap <buffer> <silent> <D-l> <CMD>FloatermNext<CR>
+  autocmd FileType floaterm tnoremap <buffer> <silent> <D-t> <CMD>FloatermNew<CR>
+  autocmd FileType floaterm tnoremap <buffer> <silent> <C-t> <CMD>FloatermToggle<CR>
+  noremap <silent> <C-t> <CMD>FloatermToggle<CR>
+  inoremap <silent> <C-t> <CMD>FloatermToggle<CR>
   " russian
-  autocmd FileType floaterm noremap <buffer> <silent> <D-р> :FloatermPrev<CR>
-  autocmd FileType floaterm noremap <buffer> <silent> <D-д> :FloatermNext<CR>
-  autocmd FileType floaterm noremap <buffer> <silent> <D-е> :FloatermNew<CR>
-  autocmd FileType floaterm tnoremap <buffer> <silent> <D-р> <C-\><C-n>:FloatermPrev<CR>
-  autocmd FileType floaterm tnoremap <buffer> <silent> <D-д> <C-\><C-n>:FloatermNext<CR>
-  autocmd FileType floaterm tnoremap <buffer> <silent> <D-е> <C-\><C-n>:FloatermNew<CR>
-  noremap <silent> <C-е> :FloatermToggle<CR>
-  inoremap <silent> <C-е> <Esc>:FloatermToggle<CR>
-  tnoremap <silent> <C-е> <C-\><C-n>:FloatermToggle<CR>
+  autocmd FileType floaterm noremap <buffer> <silent> <D-р> <CMD>FloatermPrev<CR>
+  autocmd FileType floaterm noremap <buffer> <silent> <D-д> <CMD>FloatermNext<CR>
+  autocmd FileType floaterm noremap <buffer> <silent> <D-е> <CMD>FloatermNew<CR>
+  autocmd FileType floaterm tnoremap <buffer> <silent> <D-р> <CMD>FloatermPrev<CR>
+  autocmd FileType floaterm tnoremap <buffer> <silent> <D-д> <CMD>FloatermNext<CR>
+  autocmd FileType floaterm tnoremap <buffer> <silent> <D-е> <CMD>FloatermNew<CR>
+  autocmd FileType floaterm tnoremap <buffer> <silent> <C-е> <CMD>FloatermToggle<CR>
+  noremap <silent> <C-е> <CMD>FloatermToggle<CR>
+  inoremap <silent> <C-е> <CMD>FloatermToggle<CR>
   " fzf
   " this two due to the fact that the side scroll is perceived as vertical
   autocmd FileType fzf tnoremap <buffer> <silent> <ScrollWheelRight> <NOP>
@@ -142,17 +143,17 @@ if has('macunix')
   " russian
   autocmd FileType fzf tnoremap <buffer> <C-е> <ESC>
   " NerdTree
-  noremap <silent> <C-e> :NERDTreeToggle<CR>
-  inoremap <silent> <C-e> <Esc>:NERDTreeToggle<CR>i
+  noremap <silent> <C-e> <CMD>NERDTreeToggle<CR>
+  inoremap <silent> <C-e> <CMD>NERDTreeToggle<CR>
   " russian
-  noremap <silent> <C-у> :NERDTreeToggle<CR>
-  inoremap <silent> <C-у> <Esc>:NERDTreeToggle<CR>i
+  noremap <silent> <C-у> <CMD>NERDTreeToggle<CR>
+  inoremap <silent> <C-у> <CMD>NERDTreeToggle<CR>
   " code run
-  noremap <silent> <C-r> :call coderunner#Run()<CR>
-  inoremap <silent> <C-r> <Esc>:call coderunner#Run()<CR>
+  noremap <silent> <C-r> <CMD>call coderunner#Run()<CR>
+  inoremap <silent> <C-r> <CMD>call coderunner#Run()<CR>
   " russian
-  noremap <silent> <C-к> :call coderunner#Run()<CR>
-  inoremap <silent> <C-к> <Esc>:call coderunner#Run()<CR>
+  noremap <silent> <C-к> <CMD>call coderunner#Run()<CR>
+  inoremap <silent> <C-к> <CMD>call coderunner#Run()<CR>
 else
   if has("gui_running")
     let g:SuperTabMappingForward = '<A-tab>'
