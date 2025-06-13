@@ -58,8 +58,8 @@ noremap жк <CMD>wa<CR><CMD>call vimspector#Launch()<CR>
 " ycm
 noremap gd <CMD>YcmCompleter GoTo<CR>
 noremap пв <CMD>YcmCompleter GoTo<CR>
-noremap <F2> <CMD>YcmCompleter RefactorRename<Space>
-inoremap <F2> <CMD>YcmCompleter RefactorRename<Space>
+noremap <F2> :YcmCompleter RefactorRename<Space>
+inoremap <F2> <Esc>:YcmCompleter RefactorRename<Space>
 if has('macunix')
   let g:SuperTabMappingForward = '<C-tab>'
   " russian specific
