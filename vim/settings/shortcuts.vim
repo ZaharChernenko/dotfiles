@@ -148,12 +148,12 @@ if has('macunix')
   " russian
   noremap <silent> <C-у> <CMD>NERDTreeToggle<CR>
   inoremap <silent> <C-у> <CMD>NERDTreeToggle<CR>
-  " code run
-  noremap <silent> <C-r> <CMD>call coderunner#Run()<CR>
-  inoremap <silent> <C-r> <CMD>call coderunner#Run()<CR>
+  " coderunner
+  noremap <silent> <C-r> :CodeRunnerRun<CR>
+  inoremap <silent> <C-r> <ESC>:CodeRunnerRun<CR>
   " russian
-  noremap <silent> <C-к> <CMD>call coderunner#Run()<CR>
-  inoremap <silent> <C-к> <CMD>call coderunner#Run()<CR>
+  noremap <silent> <C-к> :CodeRunnerRun<CR>
+  inoremap <silent> <C-к> <ESC>:CodeRunnerRun<CR>
 else
   if has("gui_running")
     let g:SuperTabMappingForward = '<A-tab>'
