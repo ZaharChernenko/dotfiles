@@ -48,6 +48,7 @@ map пп gg
 " tabs edit like vs code
 vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
+
 " vimspector
 noremap ;t <CMD>call vimspector#ToggleBreakpoint()<CR>
 noremap ;c <CMD>call vimspector#ClearBreakpoints()<CR>
@@ -60,6 +61,11 @@ noremap gd <CMD>YcmCompleter GoTo<CR>
 noremap пв <CMD>YcmCompleter GoTo<CR>
 noremap <F2> :YcmCompleter RefactorRename<Space>
 inoremap <F2> <Esc>:YcmCompleter RefactorRename<Space>
+" fzf
+" this two due to the fact that the side scroll is perceived as vertical
+autocmd FileType fzf tnoremap <buffer> <silent> <ScrollWheelRight> <NOP>
+autocmd FileType fzf tnoremap <buffer> <silent> <ScrollWheelLeft> <NOP>
+
 if has('macunix')
   let g:SuperTabMappingForward = '<C-tab>'
   " russian specific
@@ -136,9 +142,6 @@ if has('macunix')
   noremap <silent> <C-е> <CMD>FloatermToggle<CR>
   inoremap <silent> <C-е> <CMD>FloatermToggle<CR>
   " fzf
-  " this two due to the fact that the side scroll is perceived as vertical
-  autocmd FileType fzf tnoremap <buffer> <silent> <ScrollWheelRight> <NOP>
-  autocmd FileType fzf tnoremap <buffer> <silent> <ScrollWheelLeft> <NOP>
   autocmd FileType fzf tnoremap <buffer> <C-t> <ESC>
   " russian
   autocmd FileType fzf tnoremap <buffer> <C-е> <ESC>

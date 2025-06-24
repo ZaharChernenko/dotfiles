@@ -123,8 +123,8 @@ let g:ale_warn_about_trailing_blank_lines = 0
 
 " coderunner start
 let g:coderunner_by_file_type = {
-    \ 'C++': 'bash -c "cd \"$dir\" && g++ -o cpp_output -std=c++2a *.cpp && ./cpp_output"',
-    \ 'Python': 'bash -c "cd \"$dir\" && python3 \"$fullFileName\""',
+    \ 'cpp': 'bash -c "cd \"$dir\" && g++ -o cpp_output -std=c++2a *.cpp && ./cpp_output"',
+    \ 'python': 'bash -c "cd \"$dir\" && python3 \"$fullFileName\""',
 \ }
 let g:coderunner_save_all_files_before_run = 1
 let g:coderunner_remove_coderunner_tempfiles_on_exit = 1
