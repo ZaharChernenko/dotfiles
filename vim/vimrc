@@ -11,7 +11,7 @@ call plug#begin($"{$XDG_CONFIG_HOME}/vim/bundle")
   Plug 'junegunn/fzf.vim'
   " git
   Plug 'tpope/vim-fugitive'
-  Plug 'shumphrey/fugitive-gitlab.vim' " for github support GBrowse
+  Plug 'shumphrey/fugitive-gitlab.vim' " for gitlab support GBrowse
   Plug 'tpope/vim-rhubarb' " for github support GBrowse
   " autocompleter
   Plug 'ycm-core/YouCompleteMe'
