@@ -1,10 +1,10 @@
-import abc
+from abc import ABC, abstractmethod
 
 
-class ICompleter(abc.ABC):
+class ICompleter(ABC):
     """Abstract base class for completers."""
 
     @classmethod
-    @abc.abstractmethod
+    @abstractmethod
     def complete(cls, **kwargs) -> dict:
-        raise NotImplementedError()
+        raise NotImplementedError

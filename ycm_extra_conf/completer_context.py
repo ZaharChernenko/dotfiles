@@ -1,18 +1,16 @@
-import typing
+from typing import Final, Optional, Type
 
-import completers
+from completers import ICompleter, TClangCompleter
 
 
 class TCompleterContext:
-    LANG_TO_COMPLETER: typing.Final[typing.Dict[str, typing.Type[completers.ICompleter]]] = {
+    LANG_TO_COMPLETER: Final[dict[str, Type[ICompleter]]] = {
         # python completer now unused, because i activate virtual env before starting vim
-        # "python": completers.TPythonCompleter,
-        "cfamily": completers.TClangCompleter,
+        # "python": TPythonCompleter,
+        "cfamily": TClangCompleter,
     }
 
     @classmethod
     def complete(cls, **kwargs):
-        completer: typing.Optional[typing.Type[completers.ICompleter]] = cls.LANG_TO_COMPLETER.get(
-            kwargs["language"], None
-        )
+        completer: Optional[Type[ICompleter]] = cls.LANG_TO_COMPLETER.get(kwargs["language"], None)
         return None if completer is None else completer.complete(**kwargs)

@@ -1,22 +1,21 @@
 import os
-import typing
+from typing import Final, Optional
 
-import path_utils
+from completers.interface import ICompleter
+from path_utils import bfs_node_upwards
 
-from completers import interface
 
-
-class TPythonCompleter(interface.ICompleter):
-    VENV_NODES: typing.Final[tuple[str, ...]] = (
+class TPythonCompleter(ICompleter):
+    VENV_NODES: Final[tuple[str, ...]] = (
         os.path.normpath(".venv/bin/python3"),
         os.path.normpath("venv/bin/python3"),
         os.path.normpath("virtualenv/bin/python3"),
     )
-    DEFAULT_PYTHON: typing.Final[str] = "python3"
+    DEFAULT_PYTHON: Final[str] = "python3"
 
     @classmethod
     def find_python_path(cls, source_dir_path: str) -> str:
-        path: typing.Optional[str] = path_utils.bfs_node_upwards(source_dir_path, cls.VENV_NODES)
+        path: Optional[str] = bfs_node_upwards(source_dir_path, cls.VENV_NODES)
         return cls.DEFAULT_PYTHON if path is None else path
 
     @classmethod

@@ -1,27 +1,27 @@
-import abc
 import os
 import sysconfig
-import typing
+from abc import ABC, abstractmethod
+from typing import Final, Optional
+
+from completers.interface import ICompleter
+from path_utils import bfs_newest_node_upwards
 
 import ycm_core
 
-import path_utils
-from completers import interface
 
-
-class TCppCompleter(interface.ICompleter):
-    DATABASE_NODES: typing.Final[tuple[str, ...]] = (
+class TCppCompleter(ICompleter, ABC):
+    DATABASE_NODES: Final[tuple[str, ...]] = (
         os.path.normpath("build/Debug/compile_commands.json"),
         os.path.normpath("build/Release/compile_commands.json"),
         os.path.normpath("build/compile_commands.json"),
     )
-    HEADER_EXTENSIONS: typing.Final[frozenset[str]] = frozenset((".h", ".hxx", ".hpp", ".hh"))
-    SOURCE_EXTENSIONS: typing.Final[tuple[str, ...]] = (".cpp", ".cxx", ".cc", ".c", ".m", ".mm")
+    HEADER_EXTENSIONS: Final[frozenset[str]] = frozenset((".h", ".hxx", ".hpp", ".hh"))
+    SOURCE_EXTENSIONS: Final[tuple[str, ...]] = (".cpp", ".cxx", ".cc", ".c", ".m", ".mm")
 
     # These are the compilation flags that will be used in case there's no
     # compilation database set (by default, one is not set).
     # CHANGE THIS LIST OF FLAGS. YES, THIS IS THE DROID YOU HAVE BEEN LOOKING FOR.
-    COMPILATION_FLAGS: typing.Final[list[str]] = [
+    COMPILATION_FLAGS: Final[list[str]] = [
         "-Wall",
         "-Wextra",
         "-Werror",
@@ -45,7 +45,7 @@ class TCppCompleter(interface.ICompleter):
     ]
 
     @classmethod
-    @abc.abstractmethod
+    @abstractmethod
     def complete(cls, **kwargs) -> dict:
         """
         If the file is a header, try to find the corresponding source file and
@@ -74,7 +74,7 @@ class TCppCompleter(interface.ICompleter):
         return filename
 
     @classmethod
-    def find_database_path(cls, source_path: str) -> typing.Optional[str]:
+    def find_database_path(cls, source_path: str) -> Optional[str]:
         """
         Set this to the absolute path to the folder (NOT the file!) containing the
         compile_commands.json file to use that instead of 'flags'. See here for
@@ -87,7 +87,7 @@ class TCppCompleter(interface.ICompleter):
         Most projects will NOT need to set this to anything; you can just change the
         'flags' list of compilation flags. Notice that YCM itself uses that approach.
         """
-        database_path: typing.Optional[str] = path_utils.bfs_newest_node_upwards(source_path, cls.DATABASE_NODES)
+        database_path: Optional[str] = bfs_newest_node_upwards(source_path, cls.DATABASE_NODES)
         return None if database_path is None else os.path.dirname(database_path)
 
 
@@ -96,7 +96,7 @@ class TClangCompleter(TCppCompleter):
     def complete(cls, **kwargs) -> dict:
         filename: str = kwargs["filename"]
         source_filename: str = cls.find_corresponding_source_file(filename)
-        database_path: typing.Optional[str] = cls.find_database_path(os.path.dirname(filename))
+        database_path: Optional[str] = cls.find_database_path(os.path.dirname(filename))
         if database_path is None:
             return {
                 "flags": cls.COMPILATION_FLAGS,
@@ -119,7 +119,7 @@ class TClangdCompleter(TCppCompleter):
     def complete(cls, **kwargs) -> dict:
         filename: str = kwargs["filename"]
         source_filename: str = cls.find_corresponding_source_file(filename)
-        database_path: typing.Optional[str] = cls.find_database_path(os.path.dirname(filename))
+        database_path: Optional[str] = cls.find_database_path(os.path.dirname(filename))
         if database_path is None:
             return {
                 "flags": cls.COMPILATION_FLAGS,

@@ -1,8 +1,8 @@
 import os
-import typing
+from typing import Iterable, Optional
 
 
-def bfs_node_upwards(source_dir_path: str, nodes: typing.Collection[str]) -> typing.Optional[str]:
+def bfs_node_upwards(source_dir_path: str, nodes: Iterable[str]) -> Optional[str]:
     """
     Searches for specified files/directories in the current directory and its direct ancestors.
     Returns the first matching node found (prioritizing order in nodes list)
@@ -19,15 +19,15 @@ def bfs_node_upwards(source_dir_path: str, nodes: typing.Collection[str]) -> typ
     return None
 
 
-def bfs_newest_node_upwards(source_dir_path: str, nodes: typing.Iterable[str]) -> typing.Optional[str]:
+def bfs_newest_node_upwards(source_dir_path: str, nodes: Iterable[str]) -> Optional[str]:
     """
     Same as bfs_node_upwards, but returns the node that is newest by modification date.
     """
 
     current_dir, next_dir = source_dir_path, os.path.dirname(source_dir_path)
     while current_dir != next_dir:
-        newest_path_to_node: typing.Optional[str] = None
-        newest_modification_time: typing.Optional[float] = None
+        newest_path_to_node: Optional[str] = None
+        newest_modification_time: Optional[float] = None
         for node in nodes:
             current_path_to_node = os.path.join(current_dir, node)
             if os.path.exists(current_path_to_node):
