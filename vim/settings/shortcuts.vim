@@ -68,45 +68,52 @@ autocmd FileType fzf tnoremap <buffer> <silent> <ScrollWheelLeft> <NOP>
 
 if has('macunix')
   let g:SuperTabMappingForward = '<C-tab>'
-  " russian specific
-  noremap <C-с> <Esc>
-  noremap <C-w>р <C-w>h
-  noremap <C-w>л <C-w>k
-  noremap <C-w>о <C-w>j
-  noremap <C-w>д <C-w>l
 
+  " escape
+  inoremap <C-c> <Esc>
+  vnoremap <C-c> <Esc>
+  " russian
   inoremap <C-с> <Esc>
+  vnoremap <C-с> <Esc>
 
-  tnoremap <C-w>р <C-w>h
-  tnoremap <C-w>л <C-w>k
-  tnoremap <C-w>о <C-w>j
-  tnoremap <C-w>д <C-w>l
   " moving in buffer
   noremap <C-h> <left>
-  noremap <C-k> <up>
   noremap <C-j> <down>
+  noremap <C-k> <up>
   noremap <C-l> <right>
   inoremap <C-h> <left>
-  inoremap <C-k> <up>
   inoremap <C-j> <down>
+  inoremap <C-k> <up>
   inoremap <C-l> <right>
   tnoremap <C-h> <left>
-  tnoremap <C-k> <up>
   tnoremap <C-j> <down>
+  tnoremap <C-k> <up>
   tnoremap <C-l> <right>
   " russian
   noremap <C-р> <left>
-  noremap <C-л> <up>
   noremap <C-о> <down>
+  noremap <C-л> <up>
   noremap <C-д> <right>
   inoremap <C-р> <left>
-  inoremap <C-л> <up>
   inoremap <C-о> <down>
+  inoremap <C-л> <up>
   inoremap <C-д> <right>
   tnoremap <C-р> <left>
-  tnoremap <C-л> <up>
   tnoremap <C-о> <down>
+  tnoremap <C-л> <up>
   tnoremap <C-д> <right>
+
+  " moving between buffers
+  " russian
+  noremap <C-w>р <C-w>h
+  noremap <C-w>о <C-w>j
+  noremap <C-w>л <C-w>k
+  noremap <C-w>д <C-w>l
+  tnoremap <C-w>р <C-w>h
+  tnoremap <C-w>о <C-w>j
+  tnoremap <C-w>л <C-w>k
+  tnoremap <C-w>д <C-w>l
+
   " wintabs
   noremap <silent> <D-h> <CMD>WintabsPrevious<CR>
   noremap <silent> <D-l> <CMD>WintabsNext<CR>
@@ -160,57 +167,74 @@ if has('macunix')
 else
   if has("gui_running")
     let g:SuperTabMappingForward = '<A-tab>'
+
     noremap <A-ScrollWheelUp> <ScrollWheelRight>
     noremap <A-ScrollWheelDown> <ScrollWheelLeft>
-    noremap <A-a> <left>
-    noremap <A-w> <up>
-    noremap <A-s> <down>
-    noremap <A-d> <right>
-    inoremap <A-a> <left>
-    inoremap <A-w> <up>
-    inoremap <A-s> <down>
-    inoremap <A-d> <right>
+
+    " escape
     inoremap <A-c> <Esc>
     vnoremap <A-c> <Esc>
-    " Russian
-    noremap <A-ф> <left>
-    noremap <A-ц> <up>
-    noremap <A-ы> <down>
-    noremap <A-в> <right>
-    inoremap <A-ф> <left>
-    inoremap <A-ц> <up>
-    inoremap <A-ы> <down>
-    inoremap <A-в> <right>
+    " russian
     inoremap <A-с> <Esc>
     vnoremap <A-с> <Esc>
+
+    " moving in buffer
+    noremap <A-h> <left>
+    noremap <A-j> <down>
+    noremap <A-k> <up>
+    noremap <A-l> <right>
+    inoremap <A-h> <left>
+    inoremap <A-j> <down>
+    inoremap <A-k> <up>
+    inoremap <A-l> <right>
+    tnoremap <A-h> <left>
+    tnoremap <A-j> <down>
+    tnoremap <A-k> <up>
+    tnoremap <A-l> <right>
+    " russian
+    noremap <A-р> <left>
+    noremap <A-о> <down>
+    noremap <A-л> <up>
+    noremap <A-д> <right>
+    inoremap <A-р> <left>
+    inoremap <A-о> <down>
+    inoremap <A-л> <up>
+    inoremap <A-д> <right>
+    tnoremap <A-р> <left>
+    tnoremap <A-о> <down>
+    tnoremap <A-л> <up>
+    tnoremap <A-д> <right>
+
     " moving between buffers
-    noremap <silent> <A-k> :wincmd k<CR>
-    noremap <silent> <A-h> :wincmd h<CR>
-    noremap <silent> <A-j> :wincmd j<CR>
-    noremap <silent> <A-l> :wincmd l<CR>
-    tnoremap <silent> <A-k> <C-\><C-n>:wincmd k<CR>
-    tnoremap <silent> <A-h> <C-\><C-n>:wincmd h<CR>
-    tnoremap <silent> <A-j> <C-\><C-n>:wincmd j<CR>
-    tnoremap <silent> <A-l> <C-\><C-n>:wincmd l<CR>
-    " Russian
-    noremap <silent> <A-л> :wincmd k<CR>
-    noremap <silent> <A-р> :wincmd h<CR>
-    noremap <silent> <A-о> :wincmd j<CR>
-    noremap <silent> <A-д> :wincmd l<CR>
-    tnoremap <silent> <A-л> <C-\><C-n>:wincmd k<CR>
-    tnoremap <silent> <A-р> <C-\><C-n>:wincmd h<CR>
-    tnoremap <silent> <A-о> <C-\><C-n>:wincmd j<CR>
-    tnoremap <silent> <A-д> <C-\><C-n>:wincmd l<CR>
-    " closing tabs
-    noremap <silent> <C-h> :WintabsPrevious<CR>
-    noremap <silent> <C-l> :WintabsNext<CR>
-    noremap <silent> <C-w> :WintabsClose<CR>
-    inoremap <silent> <C-w> <Esc>:WintabsClose<CR>
-    " Russian
-    noremap <silent> <C-р> :WintabsPrevious<CR>
-    noremap <silent> <C-д> :WintabsNext<CR>
-    noremap <silent> <C-ц> :WintabsClose<CR>
-    inoremap <silent> <C-ц> <Esc>:WintabsClose<CR>
+    noremap <silent> <A-w>h <C-w>h
+    noremap <silent> <A-w>j <C-w>j
+    noremap <silent> <A-w>k <C-w>k
+    noremap <silent> <A-w>l <C-w>l
+    tnoremap <silent> <A-w>h <C-w>h
+    tnoremap <silent> <A-w>j <C-w>j
+    tnoremap <silent> <A-w>k <C-w>k
+    tnoremap <silent> <A-w>l <C-w>l
+    " russian
+    noremap <silent> <A-ц>р <C-w>h
+    noremap <silent> <A-ц>о <C-w>j
+    noremap <silent> <A-ц>л <C-w>k
+    noremap <silent> <A-ц>д <C-w>l
+    tnoremap <silent> <A-ц>р <C-w>h
+    tnoremap <silent> <A-ц>о <C-w>j
+    tnoremap <silent> <A-ц>л <C-w>k
+    tnoremap <silent> <A-ц>д <C-w>l
+
+    " wintabs
+    noremap <silent> <C-h> <CMD>WintabsPrevious<CR>
+    noremap <silent> <C-l> <CMD>WintabsNext<CR>
+    noremap <silent> <C-w> <CMD>WintabsClose<CR>
+    inoremap <silent> <C-w> <CMD>WintabsClose<CR>
+    " russian
+    noremap <silent> <C-р> <CMD>WintabsPrevious<CR>
+    noremap <silent> <C-д> <CMD>WintabsNext<CR>
+    noremap <silent> <C-ц> <CMD>WintabsClose<CR>
+    inoremap <silent> <C-ц> <CMD>WintabsClose<CR>
+
     " terminal
     " <C-w>N - normal mode in terminal (ctrl+w, shift+n)
     " все сочетания с ctrl регистронезависимые, поэтому ctrl+shift+w нельзя
@@ -219,8 +243,10 @@ else
     " tnoremap <C-c> <C-W>N
     tnoremap <C-v> <C-W>"+
     tnoremap <silent> <A-t> <C-\><C-n>:call ToggleTerminal(0)<CR>
-    noremap <silent> <A-t> :call ToggleTerminal(0)<CR>
+    noremap <silent> <A-t> <CMD>FloatermToggle<CR>
     inoremap <silent> <A-t> <Esc>:call ToggleTerminal(1)<CR>
+
+
     " Russian
     tnoremap <C-м> <C-W>"+
     tnoremap <silent> <A-е> <C-\><C-n>:call ToggleTerminal(0)<CR>
