@@ -124,6 +124,7 @@ if has('macunix')
   noremap <silent> <D-д> <CMD>WintabsNext<CR>
   noremap <silent> <D-ц> <CMD>WintabsClose<CR>
   inoremap <silent> <D-ц> <CMD>WintabsClose<CR>
+
   " floaterm
   autocmd FileType floaterm noremap <buffer> <silent> <ScrollWheelUp> <CMD>call ScrollUp()<CR>
   autocmd FileType floaterm noremap <buffer> <silent> <ScrollWheelDown> <CMD>call ScrollDown()<CR>
@@ -148,22 +149,26 @@ if has('macunix')
   autocmd FileType floaterm tnoremap <buffer> <silent> <C-е> <CMD>FloatermToggle<CR>
   noremap <silent> <C-е> <CMD>FloatermToggle<CR>
   inoremap <silent> <C-е> <CMD>FloatermToggle<CR>
+
   " fzf
   autocmd FileType fzf tnoremap <buffer> <C-t> <ESC>
   " russian
   autocmd FileType fzf tnoremap <buffer> <C-е> <ESC>
+
   " NerdTree
   noremap <silent> <C-e> <CMD>NERDTreeToggle<CR>
   inoremap <silent> <C-e> <CMD>NERDTreeToggle<CR>
   " russian
   noremap <silent> <C-у> <CMD>NERDTreeToggle<CR>
   inoremap <silent> <C-у> <CMD>NERDTreeToggle<CR>
+
   " coderunner
   noremap <silent> <C-r> :CodeRunnerRun<CR>
   inoremap <silent> <C-r> <ESC>:CodeRunnerRun<CR>
   " russian
   noremap <silent> <C-к> :CodeRunnerRun<CR>
   inoremap <silent> <C-к> <ESC>:CodeRunnerRun<CR>
+
 else
   if has("gui_running")
     let g:SuperTabMappingForward = '<A-tab>'
@@ -258,12 +263,14 @@ else
     " Russian
     noremap <silent> <A-у> :NERDTreeToggle<CR>
     inoremap <silent> <A-у> <Esc>:NERDTreeToggle<CR>i
-    " code run
-    noremap <silent> <A-r> :call coderunner#Run()<CR>
-    inoremap <silent> <A-r> <Esc>:call coderunner#Run()<CR>
-    " Russian
-    noremap <silent> <A-к> :call coderunner#Run()<CR>
-    inoremap <silent> <A-к> <Esc>:call coderunner#Run()<CR>
+
+    " coderunner
+    noremap <silent> <A-r> :CodeRunnerRun<CR>
+    inoremap <silent> <A-r> <ESC>:CodeRunnerRun<CR>
+    " russian
+    noremap <silent> <A-к> :CodeRunnerRun<CR>
+    inoremap <silent> <A-к> <ESC>:CodeRunnerRun<CR>
+
   else
     let g:SuperTabMappingForward = '<Esc><Tab>'
     " alt in console is escaped seq ^], so this is why <Esc>key works like <A-key>

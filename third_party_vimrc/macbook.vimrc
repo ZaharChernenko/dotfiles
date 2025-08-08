@@ -4,15 +4,15 @@ noremap Q ^
 noremap q ge
 
 noremap <C-h> <left>
-noremap <C-k> <up>
 noremap <C-j> <down>
+noremap <C-k> <up>
 noremap <C-l> <right>
 noremap <C-c> <Esc>
+
 inoremap <C-h> <left>
-inoremap <C-k> <up>
 inoremap <C-j> <down>
+inoremap <C-k> <up>
 inoremap <C-l> <right>
-inoremap <C-d> <Bs>
 inoremap <C-c> <Esc>
 
 " russian
@@ -60,20 +60,21 @@ noremap <C-с> <Esc>
 inoremap <C-с> <Esc>
 
 noremap <C-w>р <C-w>h
-noremap <C-w>л <C-w>k
 noremap <C-w>о <C-w>j
+noremap <C-w>л <C-w>k
 noremap <C-w>д <C-w>l
+
 tnoremap <C-w>р <C-w>h
-tnoremap <C-w>л <C-w>k
 tnoremap <C-w>о <C-w>j
+tnoremap <C-w>л <C-w>k
 tnoremap <C-w>д <C-w>l
 
 noremap <C-р> <left>
-noremap <C-л> <up>
 noremap <C-о> <down>
+noremap <C-л> <up>
 noremap <C-д> <right>
 
 inoremap <C-р> <left>
-inoremap <C-л> <up>
 inoremap <C-о> <down>
+inoremap <C-л> <up>
 inoremap <C-д> <right>
