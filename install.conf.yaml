@@ -16,6 +16,7 @@
     # do not link the folder itself so that the rest of the files, such as plugins do not drag
     $XDG_CONFIG_HOME/vim/vimrc: vim/vimrc
     $XDG_CONFIG_HOME/vim/settings/: vim/settings/
+    $XDG_CONFIG_HOME/vim/shortcuts/: vim/shortcuts/
 
     $XDG_CONFIG_HOME/ycm_extra_conf/: ycm_extra_conf
 

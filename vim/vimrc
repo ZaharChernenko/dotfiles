@@ -42,7 +42,7 @@ call plug#end()
 
 
 execute $"source {$XDG_CONFIG_HOME}/vim/settings/functions.vim"
-execute $"source {$XDG_CONFIG_HOME}/vim/settings/shortcuts.vim"
+execute $"source {$XDG_CONFIG_HOME}/vim/shortcuts/shortcuts.vim"
 execute $"source {$XDG_CONFIG_HOME}/vim/bundle/lsp-examples/vimrc.generated"
 
 
