@@ -1,0 +1,51 @@
+{
+    "$schema": "https://puremourning.github.io/vimspector/schema/vimspector.schema.json",
+    "configurations": {
+        "CodeLLDB build & debug current directory": {
+            "adapter": "CodeLLDB",
+            "variables": {
+                "BUILDME": {
+                    "shell": [
+                        "sh",
+                        "-c",
+                        "g++ -o \"${fileDirname}/cpp_output\" -g -std=c++2a \"${fileDirname}\"/*.cpp"
+                    ]
+                }
+            },
+            "breakpoints": {
+                "exception": {
+                    "raised": "N",
+                    "uncaught": "",
+                    "userUnhandled": ""
+                }
+            },
+            "configuration": {
+                "console": "integratedTerminal",
+                "cwd": "${workspaceRoot}",
+                "request": "launch",
+                "expressions": "native",
+                "program": "${workspaceRoot}/cpp_output",
+                "stopOnEntry": false
+            }
+        },
+        "CodeLLDB debug existing executable": {
+            "adapter": "CodeLLDB",
+            "breakpoints": {
+                "exception": {
+                    "raised": "N",
+                    "uncaught": "",
+                    "userUnhandled": ""
+                }
+            },
+            "configuration": {
+                "args": [],
+                "console": "integratedTerminal",
+                "cwd": "${workspaceRoot}",
+                "request": "launch",
+                "type": "lldb",
+                "program": "${pathToExecutable}",
+                "stopOnEntry": false
+            }
+        }
+    }
+}

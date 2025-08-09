@@ -1,0 +1,69 @@
+{
+    "$schema": "https://puremourning.github.io/vimspector/schema/vimspector.schema.json",
+    "configurations": {
+        "debugpy": {
+            "adapter": "debugpy",
+            "breakpoints": {
+                "exception": {
+                    "raised": "N",
+                    "uncaught": "",
+                    "userUnhandled": ""
+                }
+            },
+            "configuration": {
+                "args": [],
+                "console": "integratedTerminal",
+                "cwd": "${workspaceRoot}",
+                "request": "launch",
+                "type": "python",
+                "python": "python3",
+                "program": "${file}",
+                "stopOnEntry": false
+            }
+        },
+        "debugpy custom python": {
+            "adapter": "debugpy",
+            "breakpoints": {
+                "exception": {
+                    "raised": "N",
+                    "uncaught": "",
+                    "userUnhandled": ""
+                }
+            },
+            "configuration": {
+                "args": [],
+                "console": "integratedTerminal",
+                "cwd": "${workspaceRoot}",
+                "request": "launch",
+                "python": "${pathToPython:python3}",
+                "type": "python",
+                "program": "${file}",
+                "stopOnEntry": false
+            }
+        },
+        "debugpy pytest": {
+            "adapter": "debugpy",
+            "breakpoints": {
+                "exception": {
+                    "raised": "N",
+                    "uncaught": "",
+                    "userUnhandled": ""
+                }
+            },
+            "configuration": {
+                "args": [
+                    "-v",
+                    "--capture=no",
+                    "${file}::${testName}"
+                ],
+                "console": "integratedTerminal",
+                "cwd": "${workspaceRoot}",
+                "request": "launch",
+                "type": "python",
+                "module": "pytest",
+                "python": "python3",
+                "stopOnEntry": false
+            }
+        }
+    }
+}

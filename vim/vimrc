@@ -22,7 +22,7 @@ call plug#begin($"{$XDG_CONFIG_HOME}/vim/bundle")
   " code runner
   Plug 'ZaharChernenko/vim-code-runner'
   " debugger
-  Plug 'puremourning/vimspector'
+  Plug 'puremourning/vimspector', { 'do': './install_gadget.py --enable-python --enable-cpp' }
   " ui
   Plug 'sheerun/vim-polyglot'
   Plug 'ryanoasis/vim-devicons'
