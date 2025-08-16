@@ -8,16 +8,16 @@ noremap <A-ScrollWheelDown> <ScrollWheelLeft>
 noremap <C-a> ggVG
 inoremap <C-a> <Esc>ggVG
 " ctrl+c
-noremap <C-c> "+yi<Esc>
+vnoremap <C-c> "+y
 " ctrl+s
 noremap <C-s> <Cmd>w<Cr>
 inoremap <C-s> <Cmd>w<Cr>
 " ctrl+v
 inoremap <C-v> <C-r><C-o>+
-nnoremap <C-v> a<C-r><C-o>+
-vnoremap <C-v> xa<C-r><C-o>+
+nnoremap <C-v> i<C-r><C-o>+<Esc>
+vnoremap <C-v> "+p
 " ctrl+x
-noremap <C-x> "+c<Esc>
+vnoremap <C-x> "+d
 " ctrl+z
 inoremap <C-z> <Esc>ui
 nnoremap <C-z> u
@@ -28,16 +28,16 @@ vnoremap <C-z> <Esc>u
 noremap <C-ф> ggVG
 inoremap <C-ф> <Esc>ggVG
 " ctrl+c
-noremap <C-с> "+yi<Esc>
+vnoremap <C-с> "+y
 " ctrl+s
 noremap <C-ы> <Cmd>w<Cr>
 inoremap <C-ы> <Cmd>w<Cr>
 " ctrl+v
 inoremap <C-м> <C-r><C-o>+
-nnoremap <C-м> a<C-r><C-o>+
-vnoremap <C-м> xa<C-r><C-o>+
+nnoremap <C-м> i<C-r><C-o>+<Esc>
+vnoremap <C-м> "+p
 " ctrl+x
-noremap <C-ч> "+c<Esc>
+vnoremap <C-ч> "+d
 " ctrl+z
 nnoremap <C-я> u
 vnoremap <C-я> <Esc>u
