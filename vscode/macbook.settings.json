@@ -5,7 +5,7 @@
         "javascript": "node",
         "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
         "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-        "cpp": "cd $dir && g++ -o output -g -std=c++2a *.cpp && ./output",
+        "cpp": "bash -c 'cd $dir && g++ -o cpp_output -std=c++2a *.cpp && ./cpp_output'",
         "csharp": "cd $dir && dotnet run",
         "zig": "zig run",
         "objective-c": "cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
