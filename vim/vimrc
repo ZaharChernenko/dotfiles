@@ -105,13 +105,14 @@ highlight clear ALEWarningSign
 let g:ale_completion_enabled = 0
 let g:ale_fixers = {
     \ '*': ['trim_whitespace', 'remove_trailing_lines'],
+    \ 'cpp': ['clang-format'],
     \ 'python': ['ruff_format', 'isort'],
-    \ 'cpp': ['clang-format']
+    \ 'rust': ['rustfmt'],
 \ }
 let g:ale_fix_on_save = 1
 let g:ale_linters = {
-    \ 'python': ['pylint', 'mypy', 'ruff'],
     \ 'cpp': ['cppcheck'],
+    \ 'python': ['pylint', 'mypy', 'ruff'],
 \ }
 let g:ale_lint_on_save = 1
 let g:ale_set_highlights = 0
@@ -125,6 +126,7 @@ let g:ale_warn_about_trailing_blank_lines = 0
 let g:coderunner_by_file_type = {
     \ 'cpp': 'bash -c "cd \"$dir\" && g++ -o cpp_output -std=c++2a *.cpp && ./cpp_output"',
     \ 'python': 'bash -c "cd \"$dir\" && python3 \"$fullFileName\""',
+    \ 'rust': 'bash -c "cd \"$dir\" && cargo run -q',
 \ }
 let g:coderunner_save_all_files_before_run = 1
 let g:coderunner_remove_coderunner_tempfiles_on_exit = 1
@@ -184,7 +186,7 @@ let g:wintabs_autoclose=2
 " wintabs end
 
 " ycm start
-autocmd FileType c,cpp,python let b:ycm_hover = {
+autocmd FileType c,cpp,python,rust let b:ycm_hover = {
     \ 'command': 'GetDoc',
     \ 'syntax': &filetype,
     \ 'popup_params': {
