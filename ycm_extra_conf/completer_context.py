@@ -1,13 +1,13 @@
 from typing import Final, Optional, Type
 
-from completers import ICompleter, TClangCompleter
+from completers import ICompleter, TClangdCompleter
 
 
 class TCompleterContext:
     LANG_TO_COMPLETER: Final[dict[str, Type[ICompleter]]] = {
         # python completer now unused, because i activate virtual env before starting vim
         # "python": TPythonCompleter,
-        "cfamily": TClangCompleter,
+        "cfamily": TClangdCompleter,
     }
 
     @classmethod
