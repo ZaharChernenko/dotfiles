@@ -106,7 +106,7 @@ let g:ale_completion_enabled = 0
 let g:ale_fixers = {
     \ '*': ['trim_whitespace', 'remove_trailing_lines'],
     \ 'cpp': ['clang-format'],
-    \ 'python': ['ruff_format', 'isort'],
+    \ 'python': ['ruff', 'ruff_format'],
     \ 'rust': ['rustfmt'],
 \ }
 let g:ale_fix_on_save = 1
