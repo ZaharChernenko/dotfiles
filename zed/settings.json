@@ -1,0 +1,116 @@
+{
+  // UI start
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "Catppuccin Mocha - No Italics"
+  },
+  "icon_theme": "Catppuccin Mocha",
+  // UI end
+
+  // Fonts start
+  "buffer_font_family": "JetBrainsMono Nerd Font",
+  "buffer_font_size": 13.0,
+  "buffer_font_features": {
+    "calt": false
+  },
+  "ui_font_family": ".ZedSans",
+  "ui_font_size": 16.0,
+  "agent_ui_font_size": 16.0,
+  // Fonts end
+
+  // Interface start
+  "tab_bar": {
+    "show": true
+  },
+  "tabs": {
+    "file_icons": false,
+    "git_status": false
+  },
+  "toolbar": {
+    "breadcrumbs": false,
+    "quick_actions": false
+  },
+  "terminal": {
+    "alternate_scroll": "on",
+    "toolbar": {
+      "breadcrumbs": false
+    },
+    "font_size": 14.0,
+    "font_family": "MesloLGS NF"
+  },
+  "bottom_dock_layout": "contained",
+  // Interface end
+
+  // Editor start
+  "vim_mode": true,
+  "cursor_shape": "bar",
+  "completions": {
+    "words": "fallback"
+  },
+  "completion_menu_scrollbar": "auto",
+  "diagnostics": {
+    "button": true,
+    "include_warnings": true,
+    "inline": {
+      "update_debounce_ms": 350,
+      "enabled": true
+    }
+  },
+  "hover_popover_delay": 200,
+  "wrap_guides": [100],
+  // Editor end
+
+  // Panels start
+  "project_panel": {
+    "button": true
+  },
+  "debugger": {
+    "button": true,
+    "dock": "left"
+  },
+  "collaboration_panel": {
+    "button": false
+  },
+  "outline_panel": {
+    "button": false
+  },
+  "notification_panel": {
+    "button": false
+  },
+  // Panels end
+
+  "git": {
+    "inline_blame": {
+      "enabled": false
+    }
+  },
+  "languages": {
+    "Python": {
+      "language_servers": ["basedpyright", "pylsp", "ruff"],
+      "format_on_save": "on"
+    }
+  },
+
+  "lsp": {
+    "pylsp": {
+      "settings": {
+        "plugins": {
+          "pyflakes": {
+            "enabled": false
+          },
+          "pylint": {
+            "enabled": true,
+            "executable": "python",
+            "args": ["-m", "pylint"]
+          }
+        }
+      }
+    }
+  },
+
+  "telemetry": {
+    "diagnostics": true,
+    "metrics": false
+  }
+}

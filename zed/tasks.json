@@ -1,0 +1,41 @@
+// Project tasks configuration. See https://zed.dev/docs/tasks for documentation.
+[
+  // Run tasks start
+  {
+    "label": "Compile & run C++",
+    "command": "cd '${ZED_DIRNAME}' && g++ -o cpp_output -std=c++2a *.cpp && ./cpp_output",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": true,
+    "reveal": "always",
+    "reveal_target": "dock",
+    "hide": "never",
+    "shell": "system",
+    "show_summary": true,
+    "show_command": true
+  },
+  // Run tasks end
+  {
+    "label": "RG",
+    "command": "zed \"$(fzf --bind 'start:reload:rg --column --line-number --no-heading --color=always --smart-case \"\"' --bind 'change:reload:rg --column --line-number --no-heading --color=always --smart-case {q} || true' --bind 'enter:become(echo {1}:{2})' --ansi --disabled --delimiter : --preview 'bat -n --color=always --highlight-line {2} {1}' --style full --layout reverse)\"",
+    "hide": "always",
+    "allow_concurrent_runs": true,
+    "use_new_terminal": true,
+    "reveal_target": "center"
+  },
+  {
+    "label": "Rg",
+    "command": "zed \"$(rg --column --line-number --no-heading --color=always --smart-case \"\" | fzf --bind 'enter:become(echo {1}:{2})' --ansi --delimiter : --preview 'bat -n --color=always --highlight-line {2} {1}' --style full --layout reverse)\"",
+    "hide": "always",
+    "allow_concurrent_runs": true,
+    "use_new_terminal": true,
+    "reveal_target": "center"
+  },
+  {
+    "label": "Files",
+    "command": "zed \"$(rg --files | fzf --preview 'bat -n --color=always {}' --style full --layout reverse)\"",
+    "hide": "always",
+    "allow_concurrent_runs": true,
+    "use_new_terminal": true,
+    "reveal_target": "center"
+  }
+]
