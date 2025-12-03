@@ -1,9 +1,13 @@
 {
   // UI start
+  "status_bar": {
+    "active_language_button": true
+  },
+  "ensure_final_newline_on_save": false,
   "theme": {
     "mode": "system",
     "light": "One Light",
-    "dark": "Catppuccin Mocha - No Italics"
+    "dark": "Fleet Dark"
   },
   "icon_theme": "Catppuccin Mocha",
   // UI end
@@ -63,6 +67,9 @@
 
   // Panels start
   "project_panel": {
+    "hide_hidden": true,
+    "auto_reveal_entries": false,
+    "default_width": 240.0,
     "button": true
   },
   "debugger": {
@@ -103,6 +110,9 @@
             "enabled": true,
             "executable": "python",
             "args": ["-m", "pylint"]
+          },
+          "jedi_hover": {
+            "enabled": false
           }
         }
       }
