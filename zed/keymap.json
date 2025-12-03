@@ -6,6 +6,7 @@
 // To see the default key bindings run `zed: open default keymap`
 // from the command palette.
 [
+  // Global bindigns start
   {
     "bindings": {
       "cmd-h": "pane::ActivatePreviousItem",
@@ -20,31 +21,21 @@
       "ctrl-w l": "workspace::ActivatePaneRight"
     }
   },
-  {
-    "context": "(ProjectPanel && not_editing)",
-    "bindings": {
-      "o": "project_panel::Open",
-      "s": "project_panel::OpenSplitVertical"
-    }
-  },
+  // Global bindings end
+
   // Editor start
   {
     "context": "Editor",
     "bindings": {
       "cmd-h": "pane::ActivatePreviousItem",
-      "cmd-l": "pane::ActivateNextItem",
-      "cmd-p": [
-        "task::Spawn",
-        { "task_name": "Files", "reveal_target": "center" }
-      ]
+      "cmd-l": "pane::ActivateNextItem"
     }
   },
   {
-    "context": "Editor && (vim_mode == normal || vim_mode == visual)",
+    "context": "Editor && (showing_code_actions || showing_completions)",
     "bindings": {
-      "E": "vim::EndOfLineDownward",
-      "Q": "vim::StartOfLineDownward",
-      "q": "vim::PreviousWordEnd"
+      "ctrl-tab": "editor::ContextMenuPrevious",
+      "tab": "editor::ContextMenuNext"
     }
   },
   {
@@ -57,13 +48,22 @@
     }
   },
   {
-    "context": "Editor && (showing_code_actions || showing_completions)",
+    "context": "Editor && (vim_mode == normal || vim_mode == visual)",
     "bindings": {
-      "ctrl-tab": "editor::ContextMenuPrevious",
-      "tab": "editor::ContextMenuNext"
+      "E": "vim::EndOfLineDownward",
+      "Q": "vim::StartOfLineDownward",
+      "q": "vim::PreviousWordEnd"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == visual",
+    "bindings": {
+      "tab": ["workspace::SendKeystrokes", "> g v"],
+      "shift-tab": ["workspace::SendKeystrokes", "< g v"]
     }
   },
   // Editor end
+
   {
     "context": "Terminal",
     "bindings": {
@@ -71,6 +71,14 @@
       "ctrl-j": ["workspace::SendKeystrokes", "down"],
       "ctrl-k": ["workspace::SendKeystrokes", "up"],
       "ctrl-l": ["workspace::SendKeystrokes", "right"]
+    }
+  },
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      "o": "project_panel::OpenPermanent",
+      "s": "project_panel::OpenSplitVertical",
+      "shift-i": "project_panel::ToggleHideHidden"
     }
   }
 ]
