@@ -154,6 +154,9 @@ let g:fzf_colors = {
     \ 'spinner': ['fg', 'Label'],
     \ 'header':  ['fg', 'Comment']
 \ }
+let g:fzf_layout = {
+    \ 'window': 'enew',
+\ }
 " fzf end
 
 " glyph-palette start
