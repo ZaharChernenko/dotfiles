@@ -74,8 +74,10 @@ noremap <silent> <C-е> <Cmd>FloatermToggle<Cr>
 inoremap <silent> <C-е> <Cmd>FloatermToggle<Cr>
 
 " fzf
+autocmd FileType fzf noremap <buffer> <C-t> i<Esc>
 autocmd FileType fzf tnoremap <buffer> <C-t> <Esc>
 " russian
+autocmd FileType fzf noremap <buffer> <C-е> i<Esc>
 autocmd FileType fzf tnoremap <buffer> <C-е> <Esc>
 
 " nerdtree
