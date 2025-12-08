@@ -138,6 +138,11 @@ let g:DevIconsEnableFoldersOpenClose = 1
 let g:NERDTreeUpdateOnCursorHold = 0 " ycm stops working because of this
 " devicons end
 
+" floaterm start
+let g:floaterm_width = 0.8
+let g:floaterm_height = 0.8
+" floaterm end
+
 " fzf start
 let g:fzf_colors = {
     \ 'fg':      ['fg', 'Normal'],
