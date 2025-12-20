@@ -1,3 +1,6 @@
 line-length = 120
 [format]
 quote-style = "double"
+[lint]
+extend-select = ["I", "F401"]
+extend-unsafe-fixes = ["F401"]
