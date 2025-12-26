@@ -1,13 +1,18 @@
 {
   // UI start
+  "show_edit_predictions": false,
+  "snippet_sort_order": "top",
+  "inlay_hints": {
+    "enabled": false,
+  },
   "status_bar": {
-    "active_language_button": true
+    "active_language_button": true,
   },
   "ensure_final_newline_on_save": false,
   "theme": {
     "mode": "system",
     "light": "One Light",
-    "dark": "Fleet Dark"
+    "dark": "Fleet Dark",
   },
   "icon_theme": "Catppuccin Mocha",
   // UI end
@@ -16,7 +21,7 @@
   "buffer_font_family": "JetBrainsMono Nerd Font",
   "buffer_font_size": 13.0,
   "buffer_font_features": {
-    "calt": false
+    "calt": false,
   },
   "ui_font_family": ".ZedSans",
   "ui_font_size": 16.0,
@@ -25,23 +30,24 @@
 
   // Interface start
   "tab_bar": {
-    "show": true
+    "show": true,
   },
   "tabs": {
     "file_icons": false,
-    "git_status": false
+    "git_status": false,
   },
   "toolbar": {
     "breadcrumbs": false,
-    "quick_actions": false
+    "quick_actions": false,
   },
   "terminal": {
+    "keep_selection_on_copy": true,
     "alternate_scroll": "on",
     "toolbar": {
-      "breadcrumbs": false
+      "breadcrumbs": false,
     },
     "font_size": 14.0,
-    "font_family": "MesloLGS NF"
+    "font_family": "MesloLGS NF",
   },
   "bottom_dock_layout": "contained",
   // Interface end
@@ -50,16 +56,19 @@
   "vim_mode": true,
   "cursor_shape": "bar",
   "completions": {
-    "words": "fallback"
+    "words": "fallback",
   },
   "completion_menu_scrollbar": "auto",
   "diagnostics": {
-    "button": true,
-    "include_warnings": true,
+    "lsp_pull_diagnostics": {
+      "debounce_ms": 350,
+    },
     "inline": {
       "update_debounce_ms": 350,
-      "enabled": true
-    }
+      "enabled": false,
+    },
+    "button": true,
+    "include_warnings": true,
   },
   "hover_popover_delay": 200,
   "wrap_guides": [100],
@@ -70,57 +79,78 @@
     "hide_hidden": true,
     "auto_reveal_entries": false,
     "default_width": 240.0,
-    "button": true
+    "button": true,
   },
   "debugger": {
     "button": true,
-    "dock": "left"
+    "dock": "left",
   },
   "collaboration_panel": {
-    "button": false
+    "button": false,
   },
   "outline_panel": {
-    "button": false
+    "button": false,
   },
   "notification_panel": {
-    "button": false
+    "button": false,
   },
   // Panels end
 
   "git": {
     "inline_blame": {
-      "enabled": false
-    }
+      "enabled": false,
+    },
   },
+
   "languages": {
     "Python": {
-      "language_servers": ["basedpyright", "pylsp", "ruff"],
-      "format_on_save": "on"
-    }
+      "language_servers": ["!basedpyright", "pylsp", "ruff"],
+      "format_on_save": "on",
+      "formatter": {
+        "external": {
+          "command": "bash",
+          "arguments": [
+            "-c",
+            "ruff check --exit-zero --fix --stdin-filename {buffer_path} | ruff format --stdin-filename {buffer_path}",
+          ],
+        },
+      },
+    },
   },
 
   "lsp": {
     "pylsp": {
       "settings": {
         "plugins": {
-          "pyflakes": {
-            "enabled": false
+          "dmypy": {
+            "enabled": true,
           },
           "pylint": {
             "enabled": true,
-            "executable": "python",
-            "args": ["-m", "pylint"]
+            "executable": "pylint",
+          },
+          "jedi": {
+            "prioritize_extra_paths": true,
           },
           "jedi_hover": {
-            "enabled": false
-          }
-        }
-      }
-    }
+            "enabled": true,
+          },
+          "pycodestyle": {
+            "enabled": false,
+          },
+          "pyflakes": {
+            "enabled": false,
+          },
+        },
+        "signature": {
+          "formatter": "ruff",
+        },
+      },
+    },
   },
 
   "telemetry": {
     "diagnostics": true,
-    "metrics": false
-  }
+    "metrics": false,
+  },
 }
