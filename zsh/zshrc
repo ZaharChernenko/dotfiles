@@ -20,4 +20,4 @@ zplug "zdharma/fast-syntax-highlighting"
 zplug check || zplug install
 zplug load
 
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
