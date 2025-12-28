@@ -11,16 +11,16 @@
     "hide": "never",
     "shell": "system",
     "show_summary": true,
-    "show_command": true
+    "show_command": true,
   },
   // Run tasks end
   {
     "label": "RG",
-    "command": "zed \"$(fzf --bind 'start:reload:rg --column --line-number --no-heading --color=always --smart-case \"\"' --bind 'change:reload:rg --column --line-number --no-heading --color=always --smart-case {q} || true' --bind 'enter:become(echo {1}:{2})' --ansi --disabled --delimiter : --preview 'bat -n --color=always --highlight-line {2} {1}' --preview-window '+{2}-/2' --style full --layout reverse)\"",
+    "command": "zed \"$(fzf --bind 'start:reload(rg --column --line-number --no-heading --color=always --smart-case \"\")' --bind 'change:reload(rg --column --line-number --no-heading --color=always --smart-case {q} || true)' --bind 'enter:become(echo {1}:{2})' --ansi --disabled --delimiter : --preview 'bat -n --color=always --highlight-line {2} {1}' --preview-window '+{2}-/2' --style full --layout reverse)\"",
     "hide": "always",
     "allow_concurrent_runs": true,
     "use_new_terminal": true,
-    "reveal_target": "center"
+    "reveal_target": "center",
   },
   {
     "label": "Rg",
@@ -28,7 +28,7 @@
     "hide": "always",
     "allow_concurrent_runs": true,
     "use_new_terminal": true,
-    "reveal_target": "center"
+    "reveal_target": "center",
   },
   {
     "label": "Files",
@@ -36,6 +36,6 @@
     "hide": "always",
     "allow_concurrent_runs": true,
     "use_new_terminal": true,
-    "reveal_target": "center"
-  }
+    "reveal_target": "center",
+  },
 ]
