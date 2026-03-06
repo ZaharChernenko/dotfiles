@@ -1,0 +1,14 @@
+adjust-cell-height = 10%
+
+theme = "Catppuccin Mocha"
+
+background-blur-radius = 10
+background-opacity = 0.75
+
+font-feature = "-calt"
+font-family = "JetBrains Mono"
+font-family-bold = "JetBrains Mono Bold"
+font-family-bold-italic = "JetBrains Mono Bold Italic"
+font-family-italic = "JetBrains Mono Italic"
+font-size = 13
+font-thicken = true
