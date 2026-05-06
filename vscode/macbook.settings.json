@@ -102,10 +102,6 @@
         },
         "editor.rulers": [100],
     },
-    "isort.args": [
-        "--profile",
-        "black"
-    ],
     "pylint.lintOnChange": true,
     "python.analysis.autoImportCompletions": true,
     "python.defaultInterpreterPath": "/Library/Frameworks/Python.framework/Versions/3.12/bin/python3-intel64",
