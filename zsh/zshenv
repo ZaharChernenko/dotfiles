@@ -1,6 +1,8 @@
-export XDG_CONFIG_HOME="${HOME}/.dotfiles"
-# `uv tool install` packages
-export PATH="${PATH}:${HOME}/.local/bin"
+export XDG_CONFIG_HOME="${HOME}/xdg_config"
+export XDG_DATA_HOME="${HOME}/xdg_data"
+
+export PATH="${PATH}:${XDG_DATA_HOME}/mise/shims"
 export PATH="${PATH}:${HOME}/.cargo/bin"
+
 export FZF_DEFAULT_OPTS="--style full --layout reverse"
 export GIT_EDITOR=vim

@@ -1,5 +1,5 @@
 import os
-from typing import Final, Optional
+from typing import Final
 
 from completers.interface import ICompleter
 from path_utils import bfs_node_upwards
@@ -15,7 +15,7 @@ class TPythonCompleter(ICompleter):
 
     @classmethod
     def find_python_path(cls, source_dir_path: str) -> str:
-        path: Optional[str] = bfs_node_upwards(source_dir_path, cls.VENV_NODES)
+        path: str | None = bfs_node_upwards(source_dir_path, cls.VENV_NODES)
         return cls.DEFAULT_PYTHON if path is None else path
 
     @classmethod

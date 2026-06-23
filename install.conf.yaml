@@ -3,25 +3,27 @@
       relink: true
       create: true
 - link:
+    ${XDG_CONFIG_HOME}/mise/config.toml: mise.toml
+
     ~/.clang-format: cpp/clang-format
 
     ~/.isort.cfg: python/isort.cfg
     ~/.pylintrc: python/pylintrc
-    $XDG_CONFIG_HOME/black: python/black
-    $XDG_CONFIG_HOME/mypy/config: python/mypy.ini
-    $XDG_CONFIG_HOME/pycodestyle: python/pycodestyle
-    $XDG_CONFIG_HOME/ruff/ruff.toml: python/ruff.toml
+    ${XDG_CONFIG_HOME}/black: python/black
+    ${XDG_CONFIG_HOME}/mypy/config: python/mypy.ini
+    ${XDG_CONFIG_HOME}/pycodestyle: python/pycodestyle
+    ${XDG_CONFIG_HOME}/ruff/ruff.toml: python/ruff.toml
 
-    $XDG_CONFIG_HOME/third_party_vimrc: third_party_vimrc
+    ${XDG_CONFIG_HOME}/third_party_vimrc: third_party_vimrc
     # do not link the folder itself so that the rest of the files, such as plugins do not drag
-    $XDG_CONFIG_HOME/vim/vimrc: vim/vimrc
-    $XDG_CONFIG_HOME/vim/snapshot.vim: vim/snapshot.vim
-    $XDG_CONFIG_HOME/vim/settings/: vim/settings/
-    $XDG_CONFIG_HOME/vim/shortcuts/: vim/shortcuts/
+    ${XDG_CONFIG_HOME}/vim/vimrc: vim/vimrc
+    ${XDG_CONFIG_HOME}/vim/snapshot.vim: vim/snapshot.vim
+    ${XDG_CONFIG_HOME}/vim/settings/: vim/settings/
+    ${XDG_CONFIG_HOME}/vim/shortcuts/: vim/shortcuts/
 
-    $XDG_CONFIG_HOME/ycm_extra_conf/: ycm_extra_conf
+    ${XDG_CONFIG_HOME}/ycm_extra_conf/: ycm_extra_conf
 
-    $XDG_CONFIG_HOME/ghostty/config: ghostty/config
+    ${XDG_CONFIG_HOME}/ghostty/config: ghostty/config
 
     ~/.p10k.zsh: zsh/p10k.zsh
     ~/.zshenv: zsh/zshenv

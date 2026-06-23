@@ -1,4 +1,4 @@
-from typing import Final, Optional, Type
+from typing import Final, Type
 
 from completers import ICompleter, TClangdCompleter
 
@@ -12,5 +12,6 @@ class TCompleterContext:
 
     @classmethod
     def complete(cls, **kwargs):
-        completer: Optional[Type[ICompleter]] = cls.LANG_TO_COMPLETER.get(kwargs["language"], None)
+        completer: Type[ICompleter] | None = cls.LANG_TO_COMPLETER.get(kwargs["language"], None)
+
         return None if completer is None else completer.complete(**kwargs)

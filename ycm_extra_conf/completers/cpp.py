@@ -1,12 +1,12 @@
 import os
 import sysconfig
 from abc import ABC, abstractmethod
-from typing import Final, Optional
+from typing import Final
+
+import ycm_core
 
 from completers.interface import ICompleter
 from path_utils import bfs_newest_node_upwards
-
-import ycm_core
 
 
 class TCppCompleter(ICompleter, ABC):
@@ -61,6 +61,7 @@ class TCppCompleter(ICompleter, ABC):
     @classmethod
     def is_header_file(cls, filename: str) -> bool:
         extension = os.path.splitext(filename)[1]
+
         return extension in cls.HEADER_EXTENSIONS
 
     @classmethod
@@ -71,10 +72,11 @@ class TCppCompleter(ICompleter, ABC):
                 replacement_file = file_path_without_extension + extension
                 if os.path.exists(replacement_file):
                     return replacement_file
+
         return filename
 
     @classmethod
-    def find_database_path(cls, source_path: str) -> Optional[str]:
+    def find_database_path(cls, source_path: str) -> str | None:
         """
         Set this to the absolute path to the folder (NOT the file!) containing the
         compile_commands.json file to use that instead of 'flags'. See here for
@@ -87,7 +89,8 @@ class TCppCompleter(ICompleter, ABC):
         Most projects will NOT need to set this to anything; you can just change the
         'flags' list of compilation flags. Notice that YCM itself uses that approach.
         """
-        database_path: Optional[str] = bfs_newest_node_upwards(source_path, cls.DATABASE_NODES)
+        database_path: str | None = bfs_newest_node_upwards(source_path, cls.DATABASE_NODES)
+
         return None if database_path is None else os.path.dirname(database_path)
 
 
@@ -96,7 +99,7 @@ class TClangCompleter(TCppCompleter):
     def complete(cls, **kwargs) -> dict:
         filename: str = kwargs["filename"]
         source_filename: str = cls.find_corresponding_source_file(filename)
-        database_path: Optional[str] = cls.find_database_path(os.path.dirname(filename))
+        database_path: str | None = cls.find_database_path(os.path.dirname(filename))
         if database_path is None:
             return {
                 "flags": cls.COMPILATION_FLAGS,
@@ -118,11 +121,13 @@ class TClangdCompleter(TCppCompleter):
     @classmethod
     def complete(cls, **kwargs) -> dict:
         filename: str = kwargs["filename"]
-        source_filename: str = cls.find_corresponding_source_file(filename)
-        database_path: Optional[str] = cls.find_database_path(os.path.dirname(filename))
+        database_path: str | None = cls.find_database_path(os.path.dirname(filename))
+
         if database_path is None:
+            source_filename: str = cls.find_corresponding_source_file(filename)
             return {
                 "flags": cls.COMPILATION_FLAGS,
                 "override_filename": source_filename,
             }
+
         return {"ls": {"compilationDatabasePath": database_path}}

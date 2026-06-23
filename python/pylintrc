@@ -112,20 +112,6 @@ unsafe-load-any-extension=no
 
 
 [BASIC]
-# Naming style matching correct argument names.
-argument-naming-style=snake_case
-# Naming style matching correct attribute names.
-attr-naming-style=snake_case
-# Naming style matching correct class attribute names.
-class-attribute-naming-style=any
-# Naming style matching correct class constant names.
-class-const-naming-style=UPPER_CASE
-# Naming style matching correct class names.
-class-naming-style=PascalCase
-# Naming style matching correct constant names.
-const-naming-style=UPPER_CASE
-# Naming style matching correct function names.
-function-naming-style=snake_case
 # Good variable names which should always be accepted, separated by a comma.
 good-names=i,
            j,
@@ -135,12 +121,6 @@ good-names=i,
            _
 # Include a hint for the correct naming format with invalid-name.
 include-naming-hint=no
-# Naming style matching correct inline iteration names.
-inlinevar-naming-style=any
-# Naming style matching correct method names.
-method-naming-style=snake_case
-# Naming style matching correct module names.
-module-naming-style=any
 # Regular expression which should only match function or class names that do
 # not require a docstring.
 no-docstring-rgx=^_
@@ -149,7 +129,6 @@ no-docstring-rgx=^_
 # to this list to register other decorators that produce valid properties.
 # These decorators are taken in consideration only for invalid-name.
 property-classes=abc.abstractproperty
-variable-naming-style=snake_case
 
 [CLASSES]
 # Warn about protected attribute access inside special methods
@@ -502,6 +481,18 @@ signature-mutators=
 
 
 [VARIABLES]
+argument-naming-style=snake_case
+attr-naming-style=snake_case
+class-attribute-naming-style=any
+class-const-naming-style=UPPER_CASE
+class-rgx=^(((I|T|E)[A-Z][a-zA-Z0-9]*)|([A-Z][a-zA-Z0-9]*(Error|Protocol)))$
+const-naming-style=any
+function-naming-style=snake_case
+typealias-rgx=^(((I|T|E)[A-Z][a-zA-Z0-9]*)|([A-Z][a-zA-Z0-9]*(Error|Protocol)))$
+typevar-rgx=^[A-Z][a-zA-Z0-9]*Type(_co|_contra)?$
+variable-naming-style=snake_case
+module-naming-style=snake_case
+inlinevar-naming-style=any
 
 # List of additional names supposed to be defined in builtins. Remember that
 # you should avoid defining new builtins when possible.

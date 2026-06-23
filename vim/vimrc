@@ -15,8 +15,6 @@ call plug#begin($"{$XDG_CONFIG_HOME}/vim/bundle")
   Plug 'tpope/vim-rhubarb' " for github support GBrowse
   " autocompleter
   Plug 'ycm-core/YouCompleteMe'
-  " extra completion for cmake and bash
-  Plug 'ycm-core/lsp-examples', { 'do': './install.py --enable-bash --enable-cmake' }
   " linter
   Plug 'dense-analysis/ale'
   " code runner
@@ -43,7 +41,6 @@ call plug#end()
 
 execute $"source {$XDG_CONFIG_HOME}/vim/settings/functions.vim"
 execute $"source {$XDG_CONFIG_HOME}/vim/shortcuts/shortcuts.vim"
-execute $"source {$XDG_CONFIG_HOME}/vim/bundle/lsp-examples/vimrc.generated"
 
 
 call PreSetup()
@@ -106,18 +103,19 @@ let g:ale_completion_enabled = 0
 let g:ale_fixers = {
     \ '*': ['trim_whitespace', 'remove_trailing_lines'],
     \ 'cpp': ['clang-format'],
+    \ 'markdown': ['prettier'],
     \ 'python': ['ruff', 'ruff_format'],
     \ 'rust': ['rustfmt'],
 \ }
 let g:ale_fix_on_save = 1
 let g:ale_linters = {
     \ 'cpp': ['cppcheck'],
-    \ 'python': ['pylint', 'mypy', 'ruff'],
+    \ 'python': ['pylint', 'ruff'],
 \ }
 let g:ale_lint_on_save = 1
 let g:ale_set_highlights = 0
 let g:ale_set_signs = 1
-let g:ale_virtualtext_cursor = 'current'
+let g:ale_virtualtext_cursor = 'disabled'
 let g:ale_warn_about_trailing_whitespace = 0
 let g:ale_warn_about_trailing_blank_lines = 0
 " ale end
@@ -199,7 +197,7 @@ let g:wintabs_autoclose=2
 " wintabs end
 
 " ycm start
-autocmd FileType c,cpp,python,rust let b:ycm_hover = {
+autocmd FileType c,cpp,rust let b:ycm_hover = {
     \ 'command': 'GetDoc',
     \ 'syntax': &filetype,
     \ 'popup_params': {
@@ -207,7 +205,7 @@ autocmd FileType c,cpp,python,rust let b:ycm_hover = {
         \ 'borderchars': ['─', '│', '─', '│', '┌', '┐', '┘', '└'],
     \ },
 \ }
-autocmd FileType cmake,sh let b:ycm_hover = {
+autocmd FileType cmake,python,sh let b:ycm_hover = {
     \ 'command': 'GetHover',
     \ 'syntax': &filetype,
     \ 'popup_params': {
@@ -217,9 +215,10 @@ autocmd FileType cmake,sh let b:ycm_hover = {
 \ }
 highlight clear YcmErrorSign
 highlight clear YcmWarningSign
-let g:ycm_confirm_extra_conf = 0
 let g:ycm_enable_diagnostic_highlighting = 0
 let g:ycm_error_symbol = 'E'
+let g:ycm_warning_symbol = 'W'
+
 let g:ycm_filetype_blacklist = {
     \ 'tagbar' : 1,
     \ 'nerdtree' : 1,
@@ -228,7 +227,26 @@ let g:ycm_filetype_blacklist = {
     \ 'text' : 1,
     \ 'csv' : 1,
 \ }
-let g:ycm_global_ycm_extra_conf = $"{$XDG_CONFIG_HOME}/ycm_extra_conf/ycm_extra_conf.py"
+
+let g:ycm_language_server = [
+    \ {
+        \ 'name': 'bash',
+        \ 'cmdline': ['bash-language-server', 'start'],
+        \ 'filetypes': ['bash', 'sh'],
+    \ },
+    \ {
+        \ 'name': 'cmake',
+        \ 'cmdline': ['neocmakelsp', 'stdio'],
+        \ 'filetypes': ['cmake'],
+    \ },
+    \ {
+        \ 'name': 'python',
+        \ 'cmdline': ['pyright-langserver', '--stdio'],
+        \ 'filetypes': ['python'],
+    \ },
+\ ]
+
 let g:ycm_seed_identifiers_with_syntax = 1
-let g:ycm_warning_symbol = 'W'
+let g:ycm_confirm_extra_conf = 0
+let g:ycm_global_ycm_extra_conf = $"{$XDG_CONFIG_HOME}/ycm_extra_conf/ycm_extra_conf.py"
 " ycm end
