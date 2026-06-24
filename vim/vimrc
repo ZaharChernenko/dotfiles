@@ -181,6 +181,7 @@ let g:pear_tree_repeatable_expand = 0
 " pear-tree end
 
 " vimspector start
+let g:vimspector_enable_auto_hover=0
 let g:vimspector_sign_priority = {
     \ 'vimspectorBP':          50,
     \ 'vimspectorBPCond':      50,

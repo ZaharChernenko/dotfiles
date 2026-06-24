@@ -1,20 +1,28 @@
 function PreSetup()
-    if has('gui_running')
-        call PreSetupGUI()
+    if has('macunix')
+        call PreSetupMacUNIX()
+    elseif has('unix')
+        call PreSetupUNIX()
     endif
 endfunction
 
 
-function PreSetupGUI()
-    if has('macunix')
+function PreSetupMacUNIX()
+    if has('gui_running')
         set guifont=JetBrainsMono\ Nerd\ Font\ Regular:h13
         set linespace=3
-    else
+    endif
+endfunction
+
+
+function PreSetupUNIX()
+    " browser for GBrowse and gx
+    let g:netrw_browsex_viewer = "yandex-browser"
+
+    if has('gui_running')
         set guifont=JetBrainsMono\ Nerd\ Font\ Mono\ Regular\ 11
         " egmrLtT - default value, custom: right, left scroll always because of gvim bug
         set guioptions=rl
-        " browser for GBrowse and gx
-        let g:netrw_browsex_viewer = "yandex-browser"
     endif
 endfunction
 
