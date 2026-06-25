@@ -175,3 +175,6 @@ x64/
 
 # macOS
 .DS_Store
+
+# nix build folder
+result

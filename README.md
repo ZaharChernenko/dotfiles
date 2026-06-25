@@ -1,7 +1,7 @@
 # dotfiles
 
 - [macOS](#macos)
-  - [Main tools](#main-tools)
+  - [Installation](#installation)
   - [Vim](#vim)
     - [vim-plug](#vim-plug)
     - [YouCompleteMe](#youcompleteme)
@@ -9,15 +9,15 @@
 
 ## macOS
 
-### Main tools
+### Installation
 
 ```shell
-# install mise and dotbot
-brew install mise dotbot
+# install nix
+curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
+# build dependencies
+nix build ./nix/macos#homeConfigurations.macos.activationPackage
 # create symlinks
-dotbot -c install.conf.yaml
-# install mise dependencies
-mise install
+./result/activate
 ```
 
 ### Vim
