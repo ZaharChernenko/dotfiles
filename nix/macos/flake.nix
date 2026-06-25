@@ -11,12 +11,14 @@
   };
   outputs = { nixpkgs, home-manager, ... }:
     let
+      username = "zahar";
       system = "aarch64-darwin";
       pkgs = nixpkgs.legacyPackages.${system};
     in {
       homeConfigurations.macos = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [ ./home.nix ];
+        extraSpecialArgs = { inherit username; };
       };
     };
 }
