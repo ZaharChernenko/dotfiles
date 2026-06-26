@@ -14,10 +14,10 @@
 ```shell
 # install nix
 curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
-# build dependencies
-nix build ./nix/macos#homeConfigurations.macos.activationPackage
-# create symlinks
-./result/activate
+# bootstrap nix-darwin, first run installs darwin-rebuild
+sudo nix run nix-darwin -- switch --flake ./nix/macos#macos
+# subsequent runs
+darwin-rebuild switch --flake ./nix/macos#macos
 ```
 
 ### Vim
