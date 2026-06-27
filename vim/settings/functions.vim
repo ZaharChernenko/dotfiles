@@ -9,7 +9,7 @@ endfunction
 
 function PreSetupMacUNIX()
     if has('gui_running')
-        set guifont=JetBrainsMono\ Nerd\ Font\ Regular:h13
+        set guifont=JetBrainsMono\ Nerd\ Font:h13
         set linespace=3
     endif
 endfunction

@@ -11,6 +11,7 @@
     cppcheck clang-tools
     nodejs_22 prettier
     uv pyright ruff pylint
+    nerd-fonts.jetbrains-mono
   ];
 
   xdg.configHome = "${config.home.homeDirectory}/xdg_config";
