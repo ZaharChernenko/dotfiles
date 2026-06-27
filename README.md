@@ -17,7 +17,7 @@ curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix 
 # bootstrap nix-darwin, first run installs darwin-rebuild
 sudo nix run nix-darwin -- switch --flake ./nix/macos#macos
 # subsequent runs
-darwin-rebuild switch --flake ./nix/macos#macos
+sudo darwin-rebuild switch --flake ./nix/macos#macos
 ```
 
 ### Vim
