@@ -1,0 +1,97 @@
+{
+    // Editor
+    "editor.hover.delay": 200,
+    "editor.minimap.enabled": false,
+    "editor.renderWhitespace": "none",
+    "editor.rulers": [100],
+    "editor.wordWrap": "off",
+
+    // Completion
+    "editor.acceptSuggestionOnEnter": "off",
+    "editor.tabCompletion": "on",               // без этого выбирает только самый первый
+    "emmet.triggerExpansionOnTab": true,
+    "github.copilot.enable": { "*": false },
+    "github.copilot.nextEditSuggestions.enabled": false,
+
+    // Files
+    "files.trimTrailingWhitespace": true,
+    "files.trimFinalNewlines": true,
+
+    // Terminal
+    "terminal.integrated.enableMultiLinePasteWarning": "never",
+    "terminal.integrated.fontFamily": "'MesloLGS NF'",
+
+    // Languages
+    "[cpp]": {
+        "editor.defaultFormatter": "xaver.clang-format",
+        "editor.formatOnSave": true,
+        "editor.semanticHighlighting.enabled": true,
+        "editor.suggest.insertMode": "replace",
+        "editor.wordBasedSuggestions": "off"
+    },
+    "[css]": {
+        "editor.defaultFormatter": "aeschli.vscode-css-formatter",
+        "editor.formatOnSave": true,
+        "editor.suggest.insertMode": "replace"
+    },
+    "[html]": {
+        "editor.formatOnSave": true,
+        "editor.suggest.insertMode": "replace"
+    },
+    "[python]": {
+        "editor.defaultFormatter": "charliermarsh.ruff",
+        "editor.formatOnSave": true,
+        "editor.suggest.insertMode": "replace",
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+        }
+    },
+
+    // Linters
+    // C/C++
+    "c-cpp-flylint.clang.enable": false,
+    "c-cpp-flylint.flawfinder.enable": false,
+    "c-cpp-flylint.flexelint.enable": false,
+    "c-cpp-flylint.lizard.enable": false,
+    // Python
+    "pylint.lintOnChange": true,
+    "python.analysis.autoImportCompletions": true,
+
+    // code-runner
+    "code-runner.enableAppInsights": false,
+    "code-runner.ignoreSelection": true,
+    "code-runner.runInTerminal": true,
+    "code-runner.saveAllFilesBeforeRun": true,
+    "code-runner.executorMap": {
+        "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        "cpp": "bash -c 'cd $dir && g++ -o cpp_output -std=c++2a *.cpp && ./cpp_output'",
+        "python": "cd $dir && \"$pythonPath\" $fileName",
+        "rust": "cd $dir && rustc $fileName && $dir$fileNameWithoutExt"
+    },
+
+    // CMake
+    "cmake.configureOnOpen": false,
+    "cmake.debugConfig": {
+        "logging": {
+            "moduleLoad": false,
+            "threadExit": false,
+            "processExit": false
+        }
+    },
+    "cmake.pinnedCommands": [
+        "workbench.action.tasks.configureTaskRunner",
+        "workbench.action.tasks.runTask"
+    ],
+
+    // Live server
+    "liveServer.settings.donotShowInfoMsg": true,
+
+    // Vim
+    "vim.vimrc.enable": true,
+    "vim.vimrc.path": "~/xdg_config/vscode/vimrc",
+
+    // Other
+    "explorer.confirmDelete": false,
+    "git.openRepositoryInParentFolders": "never",
+    "security.workspace.trust.untrustedFiles": "open"
+}

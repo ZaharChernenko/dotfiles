@@ -25,16 +25,18 @@ in
     home.file.".zshenv".source       = pwd + /zsh/zshenv;
     home.file.".zshrc".source        = pwd + /zsh/zshrc;
 
-    xdg.configFile."mypy/config".source       = pwd + /python/mypy.ini;
-    xdg.configFile."ruff/ruff.toml".source    = pwd + /python/ruff.toml;
-    xdg.configFile."third_party_vimrc".source = pwd + /third_party_vimrc;
-    xdg.configFile."ghostty/config".source    = pwd + /ghostty/config;
-    xdg.configFile."ycm_extra_conf".source    = pwd + /ycm_extra_conf;
-
     xdg.configFile."vim/vimrc".source         = pwd + /vim/vimrc;
     xdg.configFile."vim/snapshot.vim".source  = pwd + /vim/snapshot.vim;
     xdg.configFile."vim/settings".source      = pwd + /vim/settings;
     xdg.configFile."vim/shortcuts".source     = pwd + /vim/shortcuts;
+    xdg.configFile."ycm_extra_conf".source    = pwd + /ycm_extra_conf;
+
+    xdg.configFile."vscode/vimrc".source = pwd + /vscode/macbook-home/macos/zahar/vimrc;
+
+    xdg.configFile."ghostty/config".source    = pwd + /ghostty/config;
+
+    xdg.configFile."mypy/config".source       = pwd + /python/mypy.ini;
+    xdg.configFile."ruff/ruff.toml".source    = pwd + /python/ruff.toml;
 
     # NOTE: Do not disable these 'sh' login items in System Settings.
     # They are managed by launchd to inject critical XDG environment variables

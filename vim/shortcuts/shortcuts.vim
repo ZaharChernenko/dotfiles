@@ -66,15 +66,17 @@ autocmd FileType fzf tnoremap <buffer> <silent> <ScrollWheelLeft> <NOP>
 noremap ;t <Cmd>call vimspector#ToggleBreakpoint()<Cr>
 noremap ;c <Cmd>call vimspector#ClearBreakpoints()<Cr>
 noremap ;r <Cmd>wa<Cr><Cmd>call vimspector#Launch()<Cr>
+" russian
 noremap же <Cmd>call vimspector#ToggleBreakpoint()<Cr>
 noremap жс <Cmd>call vimspector#ClearBreakpoints()<Cr>
 noremap жк <Cmd>wa<Cr><Cmd>call vimspector#Launch()<Cr>
 
 " ycm
 noremap gd <Cmd>YcmCompleter GoTo<Cr>
-noremap пв <Cmd>YcmCompleter GoTo<Cr>
 noremap <F2> :YcmCompleter RefactorRename<Space>
 inoremap <F2> <Esc>:YcmCompleter RefactorRename<Space>
+" russian
+noremap пв <Cmd>YcmCompleter GoTo<Cr>
 
 if has('macunix')
     execute $"source {$XDG_CONFIG_HOME}/vim/shortcuts/shortcuts_macunix.vim"
