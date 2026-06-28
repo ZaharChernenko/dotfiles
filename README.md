@@ -1,28 +1,28 @@
 # dotfiles
 
-- [macOS](#macos)
-  - [Installation](#installation)
-  - [Vim](#vim)
-    - [vim-plug](#vim-plug)
-    - [YouCompleteMe](#youcompleteme)
-  - [fonts](#fonts)
+- [Installation](#installation)
+  - [macbook-home/macos](#macbook-homemacos)
+- [Vim](#vim)
+  - [vim-plug](#vim-plug)
+  - [YouCompleteMe](#youcompleteme)
+- [Fonts](#fonts)
 
-## macOS
+## Installation
 
-### Installation
+### macbook-home/macos
 
 ```shell
 # install nix
 curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
 # bootstrap nix-darwin, first run installs darwin-rebuild
-sudo nix run nix-darwin -- switch --flake ./nix/macos#macos
+sudo nix run nix-darwin -- switch --flake ./nix/macbook-home/macos#zahar
 # subsequent runs
-sudo darwin-rebuild switch --flake ./nix/macos#macos
+sudo darwin-rebuild switch --flake ./nix/macbook-home/macos#zahar
 ```
 
-### Vim
+## Vim
 
-#### vim-plug
+### vim-plug
 
 1. Install vim-plug
 
@@ -37,7 +37,7 @@ sudo darwin-rebuild switch --flake ./nix/macos#macos
    source ${XDG_CONFIG_HOME}/vim/snapshot.vim
    ```
 
-#### YouCompleteMe
+### YouCompleteMe
 
 1.  Find the python path linked to vim
 
@@ -65,6 +65,6 @@ sudo darwin-rebuild switch --flake ./nix/macos#macos
 
     [Here](https://github.com/ycm-core/lsp-examples) you can find examples of installing other lsp servers for ycm.
 
-### fonts
+## Fonts
 
 [Patch your font](https://github.com/ryanoasis/nerd-fonts). If you use gvim, add the `--mono` flag to ensure all glyphs, both existing and added, are single-width.
