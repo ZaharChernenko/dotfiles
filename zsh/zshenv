@@ -7,5 +7,35 @@ export PATH="${PATH}:/nix/var/nix/profiles/default/bin"
 export PATH="${PATH}:/etc/profiles/per-user/${USER}/bin"
 export PATH="${PATH}:${HOME}/.cargo/bin"
 
-export FZF_DEFAULT_OPTS="--style full --layout reverse"
 export GIT_EDITOR=vim
+
+rg-regex() {
+    fzf \
+        --disabled \
+        --bind 'start:reload(rg --column --line-number --no-heading --color=always --smart-case "" || true)' \
+        --bind 'change:reload(rg --column --line-number --no-heading --color=always --smart-case {q} || true)' \
+        --bind 'enter:become(echo {1}:{2}:{3})' \
+        --delimiter : \
+        --ansi \
+        --preview 'bat -n --color=always --highlight-line {2} {1}' \
+        --preview-window '+{2}-/2' \
+        --style full \
+        --layout reverse
+}
+
+rg-fuzzy() {
+    rg --column --line-number --no-heading --color=always --smart-case "" 2>/dev/null \
+        | fzf \
+            --bind 'enter:become(echo {1}:{2})' \
+            --delimiter : \
+            --nth 4.. \
+            --ansi \
+            --preview 'bat -n --color=always --highlight-line {2} {1}' \
+            --preview-window '+{2}-/2' \
+            --style full \
+            --layout reverse
+}
+
+rg-files() {
+    rg --files | fzf --preview 'bat -n --color=always {}' --style full --layout reverse
+}

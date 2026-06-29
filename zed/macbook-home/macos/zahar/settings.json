@@ -1,82 +1,83 @@
 {
-  // UI start
   "cli_default_open_behavior": "new_window",
-  "git_panel": {
-    "dock": "left",
-  },
-  "disable_ai": false,
-  "agent": {
-    "dock": "right",
-    "default_model": {
-      "provider": "copilot_chat",
-      "model": "gpt-4.1",
-    },
-    "model_parameters": [],
-  },
-  "features": {
-    "edit_prediction_provider": "copilot",
-  },
-  "title_bar": {
-    "show_project_items": true,
-    "show_menus": false,
-    "show_branch_icon": false,
-  },
-  // "show_edit_predictions": false,
-  "snippet_sort_order": "top",
-  "inlay_hints": {
-    "enabled": false,
-  },
-  "status_bar": {
-    "active_language_button": true,
-  },
-  "ensure_final_newline_on_save": true,
+  "disable_ai": true,
+  "vim_mode": true,
+
+  // UI start
+  "ui_font_family": ".ZedSans",
+  "ui_font_size": 16.0,
   "theme": {
-    "mode": "system",
+    "mode": "dark",
     "light": "One Light",
     "dark": "Fleet Dark",
   },
-  "icon_theme": "Catppuccin Mocha",
+  "icon_theme": {
+    "mode": "light",
+    "light": "Catppuccin Mocha",
+    "dark": "Catppuccin Mocha",
+  },
   // UI end
 
-  // Fonts start
-  "buffer_font_family": "JetBrainsMono Nerd Font",
-  "buffer_font_size": 13.0,
-  "buffer_font_features": {
-    "calt": false,
+  // Bars start
+  "title_bar": {
+    "show_menus": false,
+    "show_project_items": true,
+    "show_branch_status_icon": false,
+    "show_branch_name": true,
   },
-  "ui_font_family": ".ZedSans",
-  "ui_font_size": 16.0,
-  "agent_ui_font_size": 16.0,
-  // Fonts end
-
-  // Interface start
   "tab_bar": {
-    "show_tab_bar_buttons": true,
     "show": true,
+    "show_nav_history_buttons": false,
+    "show_tab_bar_buttons": false,
   },
   "tabs": {
-    "close_position": "right",
+    "close_position": "left",
     "file_icons": false,
     "git_status": false,
+    "show_close_button": "always",
   },
   "toolbar": {
     "breadcrumbs": false,
     "quick_actions": false,
   },
-  "terminal": {
-    "keep_selection_on_copy": true,
-    "alternate_scroll": "on",
-    "toolbar": {
-      "breadcrumbs": false,
-    },
-    "font_size": 14.0,
-    "font_family": "MesloLGS NF",
+  "status_bar": {
+    "active_language_button": true,
   },
   "bottom_dock_layout": "contained",
-  // Interface end
+  // Bars end
+
+  // Panels start
+  "collaboration_panel": {
+    "dock": "left",
+    "button": false,
+  },
+  "debugger": {
+    "button": true,
+    "dock": "left",
+  },
+  "git_panel": {
+    "button": true,
+    "dock": "left",
+  },
+  "outline_panel": {
+    "dock": "left",
+    "button": false,
+  },
+  "project_panel": {
+    "dock": "left",
+    "hide_hidden": false,
+    "auto_reveal_entries": false,
+    "default_width": 240.0,
+    "button": true,
+  },
+  // Panels end
 
   // Editor start
-  "vim_mode": true,
+  "buffer_font_family": "JetBrainsMono Nerd Font",
+  "buffer_font_size": 13.0,
+  "buffer_font_features": {
+    "calt": false,
+  },
   "cursor_shape": "bar",
   "completions": {
     "words": "fallback",
@@ -93,34 +94,24 @@
     "button": true,
     "include_warnings": true,
   },
-  "hover_popover_delay": 200,
+  "ensure_final_newline_on_save": true,
+  "hover_popover_delay": 175,
+  "inlay_hints": {
+    "enabled": false,
+  },
+  "snippet_sort_order": "top",
   "wrap_guides": [100],
   // Editor end
 
-  // Panels start
-  "project_panel": {
-    "dock": "left",
-    "hide_hidden": false,
-    "auto_reveal_entries": false,
-    "default_width": 240.0,
-    "button": true,
+  "terminal": {
+    "keep_selection_on_copy": true,
+    "alternate_scroll": "on",
+    "toolbar": {
+      "breadcrumbs": false,
+    },
+    "font_size": 14.0,
+    "font_family": "MesloLGS NF",
   },
-  "debugger": {
-    "button": true,
-    "dock": "left",
-  },
-  "collaboration_panel": {
-    "dock": "left",
-    "button": false,
-  },
-  "outline_panel": {
-    "dock": "left",
-    "button": false,
-  },
-  "notification_panel": {
-    "button": false,
-  },
-  // Panels end
 
   "git": {
     "inline_blame": {

@@ -17,27 +17,30 @@
   // FZF tasks start
   {
     "label": "RG",
-    "command": "zed \"$(fzf --bind 'start:reload(rg --column --line-number --no-heading --color=always --smart-case \"\" || true)' --bind 'change:reload(rg --column --line-number --no-heading --color=always --smart-case {q} || true)' --bind 'enter:become(echo {1}:{2}:{3})' --ansi --disabled --delimiter : --preview 'bat -n --color=always --highlight-line {2} {1}' --preview-window '+{2}-/2' --style full --layout reverse)\"",
-    "hide": "always",
+    "shell": "system",
+    "command": "zed \"$(rg-regex)\"",
     "allow_concurrent_runs": true,
     "use_new_terminal": true,
     "reveal_target": "center",
+    "hide": "always",
   },
   {
     "label": "Rg",
-    "command": "zed \"$(rg --column --line-number --no-heading --color=always --smart-case \"\" 2>/dev/null | fzf --bind 'enter:become(echo {1}:{2})' --ansi --delimiter : --nth 4.. --preview 'bat -n --color=always --highlight-line {2} {1}' --preview-window '+{2}-/2' --style full --layout reverse)\"",
-    "hide": "always",
+    "shell": "system",
+    "command": "zed \"$(rg-fuzzy)\"",
     "allow_concurrent_runs": true,
     "use_new_terminal": true,
     "reveal_target": "center",
+    "hide": "always",
   },
   {
     "label": "Files",
-    "command": "zed \"$(rg --files | fzf --preview 'bat -n --color=always {}' --style full --layout reverse)\"",
-    "hide": "always",
+    "shell": "system",
+    "command": "zed \"$(rg-files)\"",
     "allow_concurrent_runs": true,
     "use_new_terminal": true,
     "reveal_target": "center",
+    "hide": "always",
   },
   // FZF tasks end
 ]
