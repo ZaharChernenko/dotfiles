@@ -7,6 +7,8 @@ export PATH="${PATH}:/nix/var/nix/profiles/default/bin"
 export PATH="${PATH}:/etc/profiles/per-user/${USER}/bin"
 export PATH="${PATH}:${HOME}/.cargo/bin"
 
+export FZF_DEFAULT_OPTS="--style full --layout reverse"
+
 export GIT_EDITOR=vim
 
 rg-regex() {
@@ -18,9 +20,7 @@ rg-regex() {
         --delimiter : \
         --ansi \
         --preview 'bat -n --color=always --highlight-line {2} {1}' \
-        --preview-window '+{2}-/2' \
-        --style full \
-        --layout reverse
+        --preview-window '+{2}-/2'
 }
 
 rg-fuzzy() {
@@ -31,11 +31,9 @@ rg-fuzzy() {
             --nth 4.. \
             --ansi \
             --preview 'bat -n --color=always --highlight-line {2} {1}' \
-            --preview-window '+{2}-/2' \
-            --style full \
-            --layout reverse
+            --preview-window '+{2}-/2'
 }
 
 rg-files() {
-    rg --files | fzf --preview 'bat -n --color=always {}' --style full --layout reverse
+    rg --files | fzf --preview 'bat -n --color=always {}'
 }

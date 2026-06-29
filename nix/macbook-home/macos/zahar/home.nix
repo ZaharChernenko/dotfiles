@@ -6,13 +6,16 @@ in
     home.stateVersion = "26.05";
 
     home.packages = with pkgs; [
-      bat jq ripgrep
       opencode
-      bash-language-server
-      cmake neocmakelsp
-      cppcheck clang-tools
-      nodejs_22 prettier
-      uv pyright ruff pylint
+      bat jq ripgrep
+      cmake
+
+      nodejs_22 python313
+      uv
+      bash-language-server neocmakelsp pyright
+      clang-tools cppcheck ruff pylint
+      prettier
+
       nerd-fonts.jetbrains-mono
     ];
 
