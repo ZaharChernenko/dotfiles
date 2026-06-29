@@ -1,5 +1,5 @@
 {
-  description = "macos flake file";
+  description = "macbook-home/macos flake file";
 
   inputs = {
     nixpkgs = {
@@ -18,38 +18,32 @@
   outputs =
     { self, nixpkgs, darwin, home-manager }:
     let
-      configurations = {
-        zahar = {
-          username = "zahar";
-          system = "aarch64-darwin";
-          darwinConfig = ./zahar/darwin.nix;
-          homeConfig = ./zahar/home.nix;
+      system = "aarch64-darwin";
+      darwinConfig = ./darwin.nix;
+
+      mkDarwinConfig = username: homeConfig:
+        darwin.lib.darwinSystem {
+          inherit system;
+          modules = [
+            darwinConfig
+            home-manager.darwinModules.home-manager
+            {
+              system.primaryUser = username;
+              users.users.${username} = {
+                name = username;
+                home = "/Users/${username}";
+              };
+
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.${username} = homeConfig;
+            }
+          ];
         };
-      };
-
-      mkDarwinConfig =
-        configName:
-          { username, system, darwinConfig, homeConfig }:
-          darwin.lib.darwinSystem {
-            inherit system;
-            modules = [
-              darwinConfig
-              home-manager.darwinModules.home-manager
-              {
-                system.primaryUser = username;
-                users.users.${username} = {
-                  name = username;
-                  home = "/Users/${username}";
-                };
-
-                home-manager.useGlobalPkgs = true;
-                home-manager.useUserPackages = true;
-                home-manager.users.${username} = homeConfig;
-              }
-            ];
-          };
     in
     {
-      darwinConfigurations = builtins.mapAttrs mkDarwinConfig configurations;
+      darwinConfigurations = {
+        zahar = mkDarwinConfig "zahar" ./zahar/home.nix;
+      };
     };
 }
