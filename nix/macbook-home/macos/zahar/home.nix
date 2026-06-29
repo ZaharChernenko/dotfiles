@@ -25,18 +25,25 @@ in
     home.file.".zshenv".source       = pwd + /zsh/zshenv;
     home.file.".zshrc".source        = pwd + /zsh/zshrc;
 
+    home.file.".config/zed/settings.json".source = pwd + /zed/macbook-home/macos/zahar/settings.json;
+    home.file.".config/zed/keymap.json".source   = pwd + /zed/macbook-home/macos/zahar/keymap.json;
+    home.file.".config/zed/tasks.json".source    = pwd + /zed/macbook-home/macos/zahar/tasks.json;
+    home.file.".config/zed/debug.json".source    = pwd + /zed/macbook-home/macos/zahar/debug.json;
+
     xdg.configFile."vim/vimrc".source         = pwd + /vim/vimrc;
     xdg.configFile."vim/snapshot.vim".source  = pwd + /vim/snapshot.vim;
     xdg.configFile."vim/settings".source      = pwd + /vim/settings;
     xdg.configFile."vim/shortcuts".source     = pwd + /vim/shortcuts;
     xdg.configFile."ycm_extra_conf".source    = pwd + /ycm_extra_conf;
 
-    xdg.configFile."vscode/vimrc".source = pwd + /vscode/macbook-home/macos/zahar/vimrc;
-
     xdg.configFile."ghostty/config".source    = pwd + /ghostty/config;
 
     xdg.configFile."mypy/config".source       = pwd + /python/mypy.ini;
     xdg.configFile."ruff/ruff.toml".source    = pwd + /python/ruff.toml;
+
+    home.file."Library/Application Support/Code/User/settings.json".source = pwd + /vscode/macbook-home/macos/zahar/settings.json;
+    home.file."Library/Application Support/Code/User/keybindings.json".source = pwd + /vscode/macbook-home/macos/zahar/keybindings.json;
+    home.file."Library/Application Support/Code/User/vimrc".source = pwd + /vscode/macbook-home/macos/zahar/vimrc;
 
     # NOTE: Do not disable these 'sh' login items in System Settings.
     # They are managed by launchd to inject critical XDG environment variables

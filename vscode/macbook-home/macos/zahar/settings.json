@@ -88,7 +88,7 @@
 
     // Vim
     "vim.vimrc.enable": true,
-    "vim.vimrc.path": "~/xdg_config/vscode/vimrc",
+    "vim.vimrc.path": "~/Library/Application Support/Code/User/vimrc",
 
     // Other
     "explorer.confirmDelete": false,

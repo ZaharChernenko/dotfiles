@@ -1,10 +1,3 @@
-// Zed keymap
-//
-// For information on binding keys, see the Zed
-// documentation: https://zed.dev/docs/key-bindings
-//
-// To see the default key bindings run `zed: open default keymap`
-// from the command palette.
 [
   // Global bindigns start
   {
@@ -18,25 +11,18 @@
       "ctrl-w h": "workspace::ActivatePaneLeft",
       "ctrl-w j": "workspace::ActivatePaneDown",
       "ctrl-w k": "workspace::ActivatePaneUp",
-      "ctrl-w l": "workspace::ActivatePaneRight"
-    }
+      "ctrl-w l": "workspace::ActivatePaneRight",
+    },
   },
   // Global bindings end
 
   // Editor start
   {
-    "context": "Editor",
-    "bindings": {
-      "cmd-h": "pane::ActivatePreviousItem",
-      "cmd-l": "pane::ActivateNextItem"
-    }
-  },
-  {
     "context": "Editor && (showing_code_actions || showing_completions)",
     "bindings": {
       "ctrl-tab": "editor::ContextMenuPrevious",
-      "tab": "editor::ContextMenuNext"
-    }
+      "tab": "editor::ContextMenuNext",
+    },
   },
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual || vim_mode == insert)",
@@ -44,41 +30,55 @@
       "ctrl-h": "vim::Left",
       "ctrl-j": "vim::Down",
       "ctrl-k": "vim::Up",
-      "ctrl-l": "vim::Right"
-    }
+      "ctrl-l": "vim::Right",
+    },
   },
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual)",
     "bindings": {
       "E": "vim::EndOfLineDownward",
       "Q": "vim::StartOfLineDownward",
-      "q": "vim::PreviousWordEnd"
-    }
+      "q": "vim::PreviousWordEnd",
+    },
+  },
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      "; t": "editor::ToggleBreakpoint",
+      "; r": "debugger::Start",
+      "; c": "debugger::ClearAllBreakpoints",
+    },
   },
   {
     "context": "Editor && vim_mode == visual",
     "bindings": {
-      "tab": ["workspace::SendKeystrokes", "> g v"],
-      "shift-tab": ["workspace::SendKeystrokes", "< g v"]
-    }
+      "cmd-c": ["workspace::SendKeystrokes", "y"], // rebind to reset the selection
+      "tab": "editor::Indent",
+      "shift-tab": "editor::Outdent",
+    },
   },
   // Editor end
 
+  // Terminal start
   {
     "context": "Terminal",
     "bindings": {
       "ctrl-h": ["workspace::SendKeystrokes", "left"],
       "ctrl-j": ["workspace::SendKeystrokes", "down"],
       "ctrl-k": ["workspace::SendKeystrokes", "up"],
-      "ctrl-l": ["workspace::SendKeystrokes", "right"]
-    }
+      "ctrl-l": ["workspace::SendKeystrokes", "right"],
+    },
   },
+  // Terminal end
+
+  // ProjectPanel start
   {
     "context": "ProjectPanel && not_editing",
     "bindings": {
       "o": "project_panel::OpenPermanent",
       "s": "project_panel::OpenSplitVertical",
-      "shift-i": "project_panel::ToggleHideHidden"
-    }
-  }
+      "shift-i": "project_panel::ToggleHideHidden",
+    },
+  },
+  // ProjectPanel end
 ]

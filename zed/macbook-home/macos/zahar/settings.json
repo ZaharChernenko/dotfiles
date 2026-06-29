@@ -1,6 +1,27 @@
 {
   // UI start
-  "show_edit_predictions": false,
+  "cli_default_open_behavior": "new_window",
+  "git_panel": {
+    "dock": "left",
+  },
+  "disable_ai": false,
+  "agent": {
+    "dock": "right",
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "gpt-4.1",
+    },
+    "model_parameters": [],
+  },
+  "features": {
+    "edit_prediction_provider": "copilot",
+  },
+  "title_bar": {
+    "show_project_items": true,
+    "show_menus": false,
+    "show_branch_icon": false,
+  },
+  // "show_edit_predictions": false,
   "snippet_sort_order": "top",
   "inlay_hints": {
     "enabled": false,
@@ -8,7 +29,7 @@
   "status_bar": {
     "active_language_button": true,
   },
-  "ensure_final_newline_on_save": false,
+  "ensure_final_newline_on_save": true,
   "theme": {
     "mode": "system",
     "light": "One Light",
@@ -30,9 +51,11 @@
 
   // Interface start
   "tab_bar": {
+    "show_tab_bar_buttons": true,
     "show": true,
   },
   "tabs": {
+    "close_position": "right",
     "file_icons": false,
     "git_status": false,
   },
@@ -76,7 +99,8 @@
 
   // Panels start
   "project_panel": {
-    "hide_hidden": true,
+    "dock": "left",
+    "hide_hidden": false,
     "auto_reveal_entries": false,
     "default_width": 240.0,
     "button": true,
@@ -86,9 +110,11 @@
     "dock": "left",
   },
   "collaboration_panel": {
+    "dock": "left",
     "button": false,
   },
   "outline_panel": {
+    "dock": "left",
     "button": false,
   },
   "notification_panel": {
@@ -103,18 +129,26 @@
   },
 
   "languages": {
-    "Python": {
-      "language_servers": ["!basedpyright", "pylsp", "ruff"],
+    "Shell Script": {
+      "language_servers": ["bash-language-server"],
+    },
+    "C++": {
+      "language_servers": ["clangd"],
       "format_on_save": "on",
-      "formatter": {
-        "external": {
-          "command": "bash",
-          "arguments": [
-            "-c",
-            "ruff check --exit-zero --fix --stdin-filename {buffer_path} | ruff format --stdin-filename {buffer_path}",
-          ],
-        },
-      },
+      "formatter": [{ "language_server": { "name": "clangd" } }],
+    },
+    "CMake": {
+      "language_servers": ["cmake"],
+    },
+    "Markdown": { "format_on_save": "on", "formatter": "prettier" },
+    "Python": {
+      "language_servers": ["basedpyright", "ruff", "pylsp"],
+      "format_on_save": "on",
+      "formatter": [
+        { "code_action": "source.organizeImports.ruff" },
+        { "code_action": "source.fixAll.ruff" },
+        { "language_server": { "name": "ruff" } },
+      ],
     },
   },
 
@@ -122,28 +156,19 @@
     "pylsp": {
       "settings": {
         "plugins": {
-          "dmypy": {
-            "enabled": true,
-          },
-          "pylint": {
-            "enabled": true,
-            "executable": "pylint",
-          },
-          "jedi": {
-            "prioritize_extra_paths": true,
-          },
-          "jedi_hover": {
-            "enabled": true,
-          },
-          "pycodestyle": {
-            "enabled": false,
-          },
-          "pyflakes": {
-            "enabled": false,
-          },
-        },
-        "signature": {
-          "formatter": "ruff",
+          "pylint": { "enabled": true, "executable": "pylint" },
+          "jedi_completion": { "enabled": false },
+          "jedi_definition": { "enabled": false },
+          "jedi_hover": { "enabled": false },
+          "jedi_references": { "enabled": false },
+          "jedi_signature_help": { "enabled": false },
+          "jedi_symbols": { "enabled": false },
+          "pyflakes": { "enabled": false },
+          "pycodestyle": { "enabled": false },
+          "mccabe": { "enabled": false },
+          "rope_completion": { "enabled": false },
+          "yapf": { "enabled": false },
+          "autopep8": { "enabled": false },
         },
       },
     },
