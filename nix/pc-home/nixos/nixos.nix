@@ -1,4 +1,5 @@
 # Edit this configuration file to define what should be installed on
+
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
@@ -23,9 +24,6 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-  # Enable network manager applet
-  programs.nm-applet.enable = true;
-
   # Set your time zone.
   time.timeZone = "Europe/Moscow";
 
@@ -48,8 +46,10 @@
   services.xserver.enable = true;
 
   # Enable the MATE Desktop Environment.
-  services.xserver.displayManager.lightdm.enable = true;
-  services.xserver.desktopManager.mate.enable = true;
+  # services.xserver.displayManager.lightdm.enable = true;
+  # services.xserver.desktopManager.mate.enable = true;
+  services.displayManager.sddm.enable = true;
+  services.desktopManager.plasma6.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -75,6 +75,10 @@
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
+  # For amnezia vpn
+  # networking.firewall.checkReversePath = "loose";
+  networking.firewall.enable = false;
+  services.resolved.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -105,12 +109,19 @@
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   programs.nix-ld.enable = true;
+  programs.amnezia-vpn.enable = true;
   # programs.mtr.enable = true;
   # programs.gnupg.agent = {
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-
+  hardware.graphics.enable = true;
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.nvidia = {
+    modesetting.enable = true;
+    open = false;
+    nvidiaSettings = true;
+  };
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
