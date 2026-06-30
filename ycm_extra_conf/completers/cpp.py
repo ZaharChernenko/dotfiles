@@ -24,7 +24,6 @@ class TCppCompleter(ICompleter, ABC):
     COMPILATION_FLAGS: Final[list[str]] = [
         "-Wall",
         "-Wextra",
-        "-Werror",
         "-Wno-long-long",
         "-Wno-variadic-macros",
         "-fexceptions",
@@ -35,12 +34,6 @@ class TCppCompleter(ICompleter, ABC):
         # For a C project, you would set this to 'c' instead of 'c++'.
         "-x",
         "c++",
-        "-isystem",
-        sysconfig.get_path("include"),
-        "-isystem",
-        "cpp/llvm/include",
-        "-isystem",
-        "cpp/llvm/tools/clang/include",
         "-std=c++2a",
     ]
 

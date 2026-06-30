@@ -59,8 +59,7 @@ sudo darwin-rebuild switch --flake ./nix/macbook-home/macos#zahar
     - If you build ycm with the `--clangd-completer` flag, then you can use `compile_commands.json` in `.ycm_extra_conf.py`. [How to](https://github.com/ycm-core/YouCompleteMe/wiki/FAQ#im-using-clangd-how-can-i-specify-a-per-project-compilation-database-path).
 
     ```shell
-    cd "${XDG_CONFIG_HOME}/vim/bundle/YouCompleteMe/"
-    <path_to_linked_python> ./install.py --clangd-completer
+    cd "${XDG_CONFIG_HOME}/vim/bundle/YouCompleteMe/" <path_to_linked_python> ./install.py
     ```
 
     [Here](https://github.com/ycm-core/lsp-examples) you can find examples of installing other lsp servers for ycm.

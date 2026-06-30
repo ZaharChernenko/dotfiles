@@ -198,7 +198,7 @@ let g:wintabs_autoclose=2
 " wintabs end
 
 " ycm start
-autocmd FileType c,cpp,rust let b:ycm_hover = {
+autocmd FileType rust let b:ycm_hover = {
     \ 'command': 'GetDoc',
     \ 'syntax': &filetype,
     \ 'popup_params': {
@@ -206,7 +206,7 @@ autocmd FileType c,cpp,rust let b:ycm_hover = {
         \ 'borderchars': ['─', '│', '─', '│', '┌', '┐', '┘', '└'],
     \ },
 \ }
-autocmd FileType cmake,python,sh let b:ycm_hover = {
+autocmd FileType c,cpp,cmake,python,sh let b:ycm_hover = {
     \ 'command': 'GetHover',
     \ 'syntax': &filetype,
     \ 'popup_params': {
@@ -245,9 +245,12 @@ let g:ycm_language_server = [
         \ 'cmdline': ['pyright-langserver', '--stdio'],
         \ 'filetypes': ['python'],
     \ },
+    \ {
+        \ 'name': 'clangd',
+        \ 'cmdline': ['clangd', '--background-index'],
+        \ 'filetypes': ['c', 'cpp', 'objc', 'objcpp', 'cuda'],
+    \ },
 \ ]
 
 let g:ycm_seed_identifiers_with_syntax = 1
-let g:ycm_confirm_extra_conf = 0
-let g:ycm_global_ycm_extra_conf = $"{$XDG_CONFIG_HOME}/ycm_extra_conf/ycm_extra_conf.py"
 " ycm end

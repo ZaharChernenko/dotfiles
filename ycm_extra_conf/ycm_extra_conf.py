@@ -1,3 +1,9 @@
+"""
+With the switch to lsp, ycm_extra_config is no longer needed.
+Clangd can be configured via .clangd files.
+Python can be configured by activating the desired environment.
+"""
+
 import os
 import sys
 
