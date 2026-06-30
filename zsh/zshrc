@@ -12,12 +12,15 @@ source ~/.zplug/init.zsh
 zplug "robbyrussell/oh-my-zsh", as:plugin, use:"lib/*.zsh"
 zplug "romkatv/powerlevel10k",  as:theme, depth:1
 zplug "plugins/colored-man-pages", from:oh-my-zsh
+zplug "zdharma/fast-syntax-highlighting"
 # virtual-text suggestion based on history
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-history-substring-search"
-zplug "zdharma/fast-syntax-highlighting"
 zplug check || zplug install
 zplug load
 
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+
+
+export FZF_DEFAULT_OPTS="--style full --layout reverse"

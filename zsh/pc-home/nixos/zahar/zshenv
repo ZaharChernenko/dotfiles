@@ -1,0 +1,14 @@
+export XDG_CONFIG_HOME="${HOME}/xdg_config"
+export XDG_DATA_HOME="${HOME}/xdg_data"
+
+export GIT_EDITOR=vim
+
+source "${XDG_CONFIG_HOME}/zsh/share/path.zsh"
+source "${XDG_CONFIG_HOME}/zsh/share/cli.sh"
+
+# Unique constraint for path.
+declare -U path
+idempotent_prepend_path "${HOME}/.cargo/bin"
+idempotent_prepend_path "/nix/var/nix/profiles/default/bin"  # Nix system tools
+idempotent_prepend_path "/etc/profiles/per-user/${USER}/bin"  # Nix user packages
+unfunction idempotent_prepend_path

@@ -1,16 +1,3 @@
-export XDG_CONFIG_HOME="${HOME}/xdg_config"
-export XDG_DATA_HOME="${HOME}/xdg_data"
-
-# Nix system tools
-export PATH="${PATH}:/nix/var/nix/profiles/default/bin"
-# Nix user packages
-export PATH="${PATH}:/etc/profiles/per-user/${USER}/bin"
-export PATH="${PATH}:${HOME}/.cargo/bin"
-
-export FZF_DEFAULT_OPTS="--style full --layout reverse"
-
-export GIT_EDITOR=vim
-
 rg-regex() {
     fzf \
         --disabled \

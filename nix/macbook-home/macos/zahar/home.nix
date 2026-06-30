@@ -13,7 +13,7 @@ in
       nodejs_22 python313
       uv
       bash-language-server neocmakelsp pyright
-      clang-tools cppcheck ruff pylint
+      cppcheck ruff pylint
       prettier
 
       nerd-fonts.jetbrains-mono
@@ -22,16 +22,12 @@ in
     xdg.configHome = "${config.home.homeDirectory}/xdg_config";
     xdg.dataHome   = "${config.home.homeDirectory}/xdg_data";
 
-    home.file.".clang-format".source = pwd + /cpp/clang-format;
-    home.file.".pylintrc".source     = pwd + /python/pylintrc;
-    home.file.".p10k.zsh".source     = pwd + /zsh/p10k.zsh;
-    home.file.".zshenv".source       = pwd + /zsh/zshenv;
+    home.file.".zshenv".source       = pwd + /zsh/macbook-home/macos/zahar/zshenv;
     home.file.".zshrc".source        = pwd + /zsh/zshrc;
+    home.file.".p10k.zsh".source     = pwd + /zsh/p10k.zsh;
+    xdg.configFile."zsh/share".source = pwd + /zsh/share;
 
-    home.file.".config/zed/settings.json".source = pwd + /zed/macbook-home/macos/zahar/settings.json;
-    home.file.".config/zed/keymap.json".source   = pwd + /zed/macbook-home/macos/zahar/keymap.json;
-    home.file.".config/zed/tasks.json".source    = pwd + /zed/macbook-home/macos/zahar/tasks.json;
-    home.file.".config/zed/debug.json".source    = pwd + /zed/macbook-home/macos/zahar/debug.json;
+    xdg.configFile."ghostty/config".source    = pwd + /ghostty/config;
 
     xdg.configFile."vim/vimrc".source         = pwd + /vim/vimrc;
     xdg.configFile."vim/snapshot.vim".source  = pwd + /vim/snapshot.vim;
@@ -39,14 +35,20 @@ in
     xdg.configFile."vim/shortcuts".source     = pwd + /vim/shortcuts;
     xdg.configFile."ycm_extra_conf".source    = pwd + /ycm_extra_conf;
 
-    xdg.configFile."ghostty/config".source    = pwd + /ghostty/config;
-
-    xdg.configFile."mypy/config".source       = pwd + /python/mypy.ini;
-    xdg.configFile."ruff/ruff.toml".source    = pwd + /python/ruff.toml;
+    home.file.".config/zed/settings.json".source = pwd + /zed/macbook-home/macos/zahar/settings.json;
+    home.file.".config/zed/keymap.json".source   = pwd + /zed/macbook-home/macos/zahar/keymap.json;
+    home.file.".config/zed/tasks.json".source    = pwd + /zed/macbook-home/macos/zahar/tasks.json;
+    home.file.".config/zed/debug.json".source    = pwd + /zed/macbook-home/macos/zahar/debug.json;
 
     home.file."Library/Application Support/Code/User/settings.json".source = pwd + /vscode/macbook-home/macos/zahar/settings.json;
     home.file."Library/Application Support/Code/User/keybindings.json".source = pwd + /vscode/macbook-home/macos/zahar/keybindings.json;
     home.file."Library/Application Support/Code/User/vimrc".source = pwd + /vscode/macbook-home/macos/zahar/vimrc;
+
+    home.file.".pylintrc".source     = pwd + /python/pylintrc;
+    xdg.configFile."mypy/config".source       = pwd + /python/mypy.ini;
+    xdg.configFile."ruff/ruff.toml".source    = pwd + /python/ruff.toml;
+
+    home.file.".clang-format".source = pwd + /cpp/clang-format;
 
     # NOTE: Do not disable these 'sh' login items in System Settings.
     # They are managed by launchd to inject critical XDG environment variables
