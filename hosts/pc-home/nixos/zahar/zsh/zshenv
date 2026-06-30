@@ -3,8 +3,8 @@ export XDG_DATA_HOME="${HOME}/xdg_data"
 
 export GIT_EDITOR=vim
 
-source "${XDG_CONFIG_HOME}/zsh/share/path.zsh"
-source "${XDG_CONFIG_HOME}/zsh/share/cli.sh"
+source "${XDG_CONFIG_HOME}/zsh/lib/path.zsh"
+source "${XDG_CONFIG_HOME}/zsh/lib/cli.sh"
 
 # Unique constraint for path.
 declare -U path

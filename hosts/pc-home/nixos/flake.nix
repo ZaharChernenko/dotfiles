@@ -39,7 +39,7 @@
     in
     {
       nixosConfigurations = {
-        zahar = mkNixosConfig "zahar" ./zahar/home.nix;
+        zahar = mkNixosConfig "zahar" ./zahar/nix/home.nix;
       };
     };
 }

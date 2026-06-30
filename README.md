@@ -15,9 +15,9 @@
 # install nix
 curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
 # bootstrap nix-darwin, first run installs darwin-rebuild
-sudo nix run nix-darwin -- switch --flake ./nix/macbook-home/macos#zahar
+sudo nix run nix-darwin -- switch --flake ./hosts/macbook-home/macos#zahar
 # subsequent runs
-sudo darwin-rebuild switch --flake ./nix/macbook-home/macos#zahar
+sudo darwin-rebuild switch --flake ./hosts/macbook-home/macos#zahar
 ```
 
 ## Vim

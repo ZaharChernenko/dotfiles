@@ -43,7 +43,7 @@
     in
     {
       darwinConfigurations = {
-        zahar = mkDarwinConfig "zahar" ./zahar/home.nix;
+        zahar = mkDarwinConfig "zahar" ./zahar/nix/home.nix;
       };
     };
 }
