@@ -21,29 +21,32 @@
       system = "aarch64-darwin";
       darwinConfig = ./darwin.nix;
 
-      mkDarwinConfig = username: homeConfig:
+      mkDarwinConfig =
+        { userConfig, homeConfig }:
         darwin.lib.darwinSystem {
           inherit system;
           modules = [
             darwinConfig
             home-manager.darwinModules.home-manager
             {
-              system.primaryUser = username;
-              users.users.${username} = {
-                name = username;
-                home = "/Users/${username}";
+              system.primaryUser = userConfig.name;
+              users.users.${userConfig.name} = {
+                inherit (userConfig) name home;
               };
 
+              home-manager.users.${userConfig.name} = homeConfig;
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.${username} = homeConfig;
             }
           ];
         };
     in
     {
       darwinConfigurations = {
-        zahar = mkDarwinConfig "zahar" ./zahar/nix/home.nix;
+        zahar = mkDarwinConfig {
+          userConfig = rec { name = "zahar"; home = "/Users/${name}"; };
+          homeConfig = ./zahar/nix/home.nix;
+        };
       };
     };
 }

@@ -236,6 +236,11 @@ let g:ycm_language_server = [
         \ 'filetypes': ['bash', 'sh'],
     \ },
     \ {
+        \ 'name': 'clangd',
+        \ 'cmdline': ['clangd', '--background-index'],
+        \ 'filetypes': ['c', 'cpp', 'cuda', 'objc', 'objcpp'],
+    \ },
+    \ {
         \ 'name': 'cmake',
         \ 'cmdline': ['neocmakelsp', 'stdio'],
         \ 'filetypes': ['cmake'],
@@ -244,11 +249,6 @@ let g:ycm_language_server = [
         \ 'name': 'python',
         \ 'cmdline': ['pyright-langserver', '--stdio'],
         \ 'filetypes': ['python'],
-    \ },
-    \ {
-        \ 'name': 'clangd',
-        \ 'cmdline': ['clangd', '--background-index'],
-        \ 'filetypes': ['c', 'cpp', 'objc', 'objcpp', 'cuda'],
     \ },
 \ ]
 

@@ -20,6 +20,7 @@ in
       nerd-fonts.jetbrains-mono
     ];
 
+    xdg.enable = true;
     xdg.configHome = "${config.home.homeDirectory}/xdg_config";
     xdg.dataHome   = "${config.home.homeDirectory}/xdg_data";
 

@@ -17,29 +17,36 @@
       system = "x86_64-linux";
       nixosConfig = ./nixos.nix;
 
-      mkNixosConfig = username: homeConfig:
+      mkNixosConfig =
+        { userConfig, homeConfig }:
         nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
             nixosConfig
             home-manager.nixosModules.home-manager
             {
-              users.users.${username} = {
-                isNormalUser = true;
-                home = "/home/${username}";
-                extraGroups = [ "wheel" "networkmanager" ];
+              users.users.${userConfig.name} = {
+                inherit (userConfig) home isNormalUser extraGroups;
               };
 
+              home-manager.users.${userConfig.name} = homeConfig;
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.${username} = homeConfig;
             }
           ];
         };
     in
     {
       nixosConfigurations = {
-        zahar = mkNixosConfig "zahar" ./zahar/nix/home.nix;
+        zahar = mkNixosConfig {
+          userConfig = rec {
+            name = "zahar";
+            home = "/home/${name}";
+            isNormalUser = true;
+            extraGroups = [ "wheel" "networkmanager" ];
+          };
+          homeConfig = ./zahar/nix/home.nix;
+        };
       };
     };
 }
