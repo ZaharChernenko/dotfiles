@@ -80,11 +80,14 @@
   networking.firewall.enable = false;
   services.resolved.enable = true;
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
-  # Install firefox.
+  programs.amnezia-vpn.enable = true;
   programs.firefox.enable = true;
+  # Some programs need SUID wrappers, can be configured further or are
+  # started in user sessions.
+  programs.nix-ld.enable = true;
+  programs.zsh.enable = true;
+
+  users.defaultUserShell = pkgs.zsh;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -96,10 +99,8 @@
   #  wget
   ];
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  programs.nix-ld.enable = true;
-  programs.amnezia-vpn.enable = true;
+
+
   # programs.mtr.enable = true;
   # programs.gnupg.agent = {
   #   enable = true;
