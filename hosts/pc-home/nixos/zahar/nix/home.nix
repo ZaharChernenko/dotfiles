@@ -49,4 +49,14 @@ in
       XDG_CONFIG_HOME = config.xdg.configHome;
       XDG_DATA_HOME   = config.xdg.dataHome;
     };
+
+    gtk.enable = true;
+    gtk.theme = {
+      name = "Chicago95";
+      package = pkgs.chicago95;
+    };
+    gtk.iconTheme = {
+      name = "Chicago95";
+      package = pkgs.chicago95;
+    };
   }
