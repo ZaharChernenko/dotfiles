@@ -11,6 +11,8 @@
       ./hardware-configuration.nix
     ];
 
+  nixpkgs.config.allowUnfree = true;
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -45,11 +47,15 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable the MATE Desktop Environment.
-  # services.xserver.displayManager.lightdm.enable = true;
-  # services.xserver.desktopManager.mate.enable = true;
-  services.displayManager.sddm.enable = true;
-  services.displayManager.sddm.theme = "Chicago95";
+  services.xserver.displayManager.lightdm.enable = true;
+  services.xserver.displayManager.lightdm.greeters.gtk.theme = {
+    package = pkgs.chicago95;
+    name = "Chicago95";
+  };
+  services.xserver.displayManager.lightdm.greeters.gtk.iconTheme = {
+    package = pkgs.chicago95;
+    name = "Chicago95";
+  };
   services.xserver.desktopManager.xfce.enable = true;
 
   # Configure keymap in X11
@@ -89,9 +95,6 @@
   programs.zsh.enable = true;
 
   users.defaultUserShell = pkgs.zsh;
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
