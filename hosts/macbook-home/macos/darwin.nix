@@ -1,8 +1,6 @@
 { ... }:
 
 {
-  system.stateVersion = 4;
-
   nix = {
     enable = false;
   };
@@ -11,4 +9,6 @@
     brews = [ "llvm" ];
     casks = [ "ghostty" ];
   };
+
+  system.stateVersion = 4;
 }

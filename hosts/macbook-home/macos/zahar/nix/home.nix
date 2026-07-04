@@ -4,7 +4,27 @@ let
   user = ../.;         # this user's config dir
 in
   {
-    home.stateVersion = "26.05";
+    xdg.enable = true;
+    xdg.configHome = "${config.home.homeDirectory}/xdg_config";
+    xdg.dataHome   = "${config.home.homeDirectory}/xdg_data";
+
+    # NOTE: Do not disable these 'sh' login items in System Settings.
+    # They are managed by launchd to inject critical XDG environment variables
+    # (like XDG_CONFIG_HOME) into the GUI session. Disabling them will cause
+    # GUI applications (like Ghostty) to lose their configuration paths.
+    launchd.agents.setenv-xdg-config = {
+      enable = true;
+      config = {
+        Label = "setenv.XDG_CONFIG_HOME";
+        ProgramArguments = [
+          "/bin/launchctl"
+          "setenv"
+          "XDG_CONFIG_HOME"
+          config.xdg.configHome
+        ];
+        RunAtLoad = true;
+      };
+    };
 
     home.packages = with pkgs; [
       opencode
@@ -19,10 +39,6 @@ in
 
       nerd-fonts.jetbrains-mono
     ];
-
-    xdg.enable = true;
-    xdg.configHome = "${config.home.homeDirectory}/xdg_config";
-    xdg.dataHome   = "${config.home.homeDirectory}/xdg_data";
 
     home.file.".zshenv".source       = user + /zsh/zshenv;
     home.file.".zshrc".source        = root + /share/zsh/zshrc;
@@ -52,21 +68,5 @@ in
 
     home.file.".clang-format".source = root + /share/cpp/clang-format;
 
-    # NOTE: Do not disable these 'sh' login items in System Settings.
-    # They are managed by launchd to inject critical XDG environment variables
-    # (like XDG_CONFIG_HOME) into the GUI session. Disabling them will cause
-    # GUI applications (like Ghostty) to lose their configuration paths.
-    launchd.agents.setenv-xdg-config = {
-      enable = true;
-      config = {
-        Label = "setenv.XDG_CONFIG_HOME";
-        ProgramArguments = [
-          "/bin/launchctl"
-          "setenv"
-          "XDG_CONFIG_HOME"
-          config.xdg.configHome
-        ];
-        RunAtLoad = true;
-      };
-    };
+    home.stateVersion = "26.05";
   }

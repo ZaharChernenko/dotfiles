@@ -4,7 +4,14 @@ let
   user = ../.;         # this user's config dir
 in
   {
-    home.stateVersion = "26.05";
+    xdg.enable = true;
+    xdg.configHome = "${config.home.homeDirectory}/xdg_config";
+    xdg.dataHome   = "${config.home.homeDirectory}/xdg_data";
+
+    home.sessionVariables = {
+      XDG_CONFIG_HOME = config.xdg.configHome;
+      XDG_DATA_HOME   = config.xdg.dataHome;
+    };
 
     home.packages = with pkgs; [
       ghostty
@@ -21,10 +28,6 @@ in
 
       nerd-fonts.jetbrains-mono
     ];
-
-    xdg.enable = true;
-    xdg.configHome = "${config.home.homeDirectory}/xdg_config";
-    xdg.dataHome   = "${config.home.homeDirectory}/xdg_data";
 
     home.file.".zshenv".source       = user + /zsh/zshenv;
     home.file.".zshrc".source        = root + /share/zsh/zshrc;
@@ -45,11 +48,6 @@ in
 
     home.file.".clang-format".source = root + /share/cpp/clang-format;
 
-    home.sessionVariables = {
-      XDG_CONFIG_HOME = config.xdg.configHome;
-      XDG_DATA_HOME   = config.xdg.dataHome;
-    };
-
     gtk.enable = true;
     gtk.theme = {
       name = "Chicago95";
@@ -59,4 +57,6 @@ in
       name = "Chicago95";
       package = pkgs.chicago95;
     };
+
+    home.stateVersion = "26.05";
   }
