@@ -90,7 +90,6 @@
   environment.systemPackages = with pkgs; [
     chicago95
     xfce4-xkb-plugin
-    telegram-desktop
     amneziawg-tools # Instead of AmneziaVPN, which drops S3/S4 params. (amnezia-client#2219)
   ];
 

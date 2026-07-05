@@ -27,6 +27,8 @@ in
       prettier
 
       nerd-fonts.jetbrains-mono
+
+      telegram-desktop
     ];
 
     home.file.".zshenv".source       = user + /zsh/zshenv;
@@ -48,14 +50,29 @@ in
 
     home.file.".clang-format".source = root + /share/cpp/clang-format;
 
-    gtk.enable = true;
-    gtk.theme = {
-      name = "Chicago95";
-      package = pkgs.chicago95;
+    xfconf = {
+      settings = {
+        xsettings = {
+          "Net/ThemeName" = "Chicago95";
+          "Net/IconThemeName" = "Chicago95";
+        };
+        xfwm4 = {
+          "general/theme" = "Chicago95";
+        };
+      };
     };
-    gtk.iconTheme = {
-      name = "Chicago95";
-      package = pkgs.chicago95;
+
+    gtk = {
+      enable = true;
+
+      theme = {
+        name = "Chicago95";
+        package = pkgs.chicago95;
+      };
+      iconTheme = {
+        name = "Chicago95";
+        package = pkgs.chicago95;
+      };
     };
 
     home.stateVersion = "26.05";
