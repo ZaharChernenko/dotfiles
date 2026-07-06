@@ -28,7 +28,7 @@ in
 
       nerd-fonts.jetbrains-mono
 
-      telegram-desktop
+      obsidian telegram-desktop
     ];
 
     home.file.".zshenv".source       = user + /zsh/zshenv;
@@ -58,6 +58,9 @@ in
         };
         xfwm4 = {
           "general/theme" = "Chicago95";
+        };
+        xfce4-notifyd = {
+          "theme" = "Chicago95";
         };
       };
     };

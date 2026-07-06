@@ -79,16 +79,31 @@
     enable = true;
   };
 
-  programs.amnezia-vpn.enable = true;
-  programs.firefox.enable = true;
+  programs.amnezia-vpn = {
+    enable = true;
+  };
+  programs.firefox = {
+    enable = true;
+  };
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
-  programs.nix-ld.enable = true;
-  programs.zsh.enable = true;
+  programs.nix-ld = {
+    enable = true;
+  };
+  programs.thunar = {
+    enable = true;
+    plugins = with pkgs; [
+      thunar-archive-plugin
+    ];
+  };
+  programs.zsh = {
+    enable = true;
+  };
 
   environment.systemPackages = with pkgs; [
-    chicago95
     xfce4-xkb-plugin
+    chicago95
+    engrampa p7zip
     amneziawg-tools # Instead of AmneziaVPN, which drops S3/S4 params. (amnezia-client#2219)
   ];
 
