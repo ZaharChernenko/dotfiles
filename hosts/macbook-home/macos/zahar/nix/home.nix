@@ -41,6 +41,7 @@ in
     };
 
     home.packages = with pkgs; [
+      ghostty-bin
       opencode
       bat jq ripgrep
       cmake
