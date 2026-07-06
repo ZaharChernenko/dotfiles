@@ -104,6 +104,10 @@
     amneziawg-tools # Instead of AmneziaVPN, which drops S3/S4 params. (amnezia-client#2219)
   ];
 
+  fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
+  ];
+
   nixpkgs.config.allowUnfree = true;
 
   system.stateVersion = "26.05";

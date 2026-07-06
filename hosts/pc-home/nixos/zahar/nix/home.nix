@@ -33,8 +33,6 @@ in
       clang-tools cppcheck ruff pylint
       prettier
 
-      nerd-fonts.jetbrains-mono
-
       pkgs-pinned.obsidian telegram-desktop
     ];
 

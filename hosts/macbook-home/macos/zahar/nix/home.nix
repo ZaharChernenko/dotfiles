@@ -45,8 +45,6 @@ in
       cppcheck ruff pylint
       prettier
 
-      nerd-fonts.jetbrains-mono
-
       pkgs-pinned.obsidian
     ];
 
