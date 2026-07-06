@@ -79,9 +79,6 @@
     enable = true;
   };
 
-  programs.amnezia-vpn = {
-    enable = true;
-  };
   programs.firefox = {
     enable = true;
   };
