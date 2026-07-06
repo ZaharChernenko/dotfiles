@@ -5,6 +5,9 @@
     nixpkgs = {
       url = "github:NixOS/nixpkgs/nixos-26.05";
     };
+    obsidian-pkgs = {
+      url = "github:NixOS/nixpkgs/07518c851b0f12351d7709274bbbd4ecc1f089c7";
+    };
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -12,7 +15,7 @@
   };
 
   outputs =
-    { self, nixpkgs, home-manager }:
+    { self, nixpkgs, obsidian-pkgs, home-manager }:
     let
       system = "x86_64-linux";
       nixosConfig = ./nixos.nix;
@@ -32,6 +35,7 @@
               home-manager.users.${userConfig.name} = homeConfig;
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = { inherit obsidian-pkgs; };
             }
           ];
         };

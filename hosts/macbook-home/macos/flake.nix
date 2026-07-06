@@ -5,6 +5,9 @@
     nixpkgs = {
       url = "github:NixOS/nixpkgs/nixpkgs-26.05-darwin";
     };
+    obsidian-pkgs = {
+      url = "github:NixOS/nixpkgs/07518c851b0f12351d7709274bbbd4ecc1f089c7";
+    };
     darwin = {
       url = "github:LnL7/nix-darwin/nix-darwin-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -16,7 +19,7 @@
   };
 
   outputs =
-    { self, nixpkgs, darwin, home-manager }:
+    { self, nixpkgs, obsidian-pkgs, darwin, home-manager }:
     let
       system = "aarch64-darwin";
       darwinConfig = ./darwin.nix;
@@ -37,6 +40,7 @@
               home-manager.users.${userConfig.name} = homeConfig;
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = { inherit obsidian-pkgs; };
             }
           ];
         };

@@ -1,19 +1,12 @@
-{ config, pkgs, ... }:
+{ config, pkgs, obsidian-pkgs, ... }:
 let
   root = ../../../../..;  # repo root (shared configs under share/)
   user = ../.;         # this user's config dir
 
   pkgs-pinned = {
     obsidian = (
-      import (
-        builtins.fetchTarball {
-          url = "https://github.com/NixOS/nixpkgs/archive/07518c851b0f12351d7709274bbbd4ecc1f089c7.tar.gz";
-          sha256 = "sha256:1q2fn8szx99narznglglsdpc6c4fj1mhrl42ig02abjqfikl723i";
-        }
-      ) {
-        system = pkgs.stdenv.hostPlatform.system;
-        config.allowUnfree = true;
-      }
+      import obsidian-pkgs
+      { system = pkgs.stdenv.hostPlatform.system; config.allowUnfree = true; }
     ).obsidian;
   };
 in

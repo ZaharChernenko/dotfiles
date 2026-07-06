@@ -37,10 +37,27 @@
         "type": "github"
       }
     },
+    "obsidian-pkgs": {
+      "locked": {
+        "lastModified": 1711404521,
+        "narHash": "sha256-cYhDZ3RYLiXAi4LQDGuQjjDDbtP00Wd/Vjal/jWyTuA=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "07518c851b0f12351d7709274bbbd4ecc1f089c7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "07518c851b0f12351d7709274bbbd4ecc1f089c7",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "obsidian-pkgs": "obsidian-pkgs"
       }
     }
   },
