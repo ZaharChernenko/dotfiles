@@ -1,41 +1,41 @@
 call plug#begin($"{$XDG_CONFIG_HOME}/vim/bundle")
-  " buffers navigation
-  Plug 'zefei/vim-wintabs'
-  Plug 'zefei/vim-wintabs-powerline'
-  " filesystem navigation
-  Plug 'preservim/nerdtree'
-  " terminal
-  Plug 'voldikss/vim-floaterm'
-  " search
-  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-  Plug 'junegunn/fzf.vim'
-  " git
-  Plug 'tpope/vim-fugitive'
-  Plug 'shumphrey/fugitive-gitlab.vim' " for gitlab support GBrowse
-  Plug 'tpope/vim-rhubarb' " for github support GBrowse
-  " autocompleter
-  Plug 'ycm-core/YouCompleteMe'
-  " linter
-  Plug 'dense-analysis/ale'
-  " code runner
-  Plug 'ZaharChernenko/vim-code-runner'
-  " debugger
-  Plug 'puremourning/vimspector', { 'do': './install_gadget.py --enable-python --enable-cpp' }
-  " ui
-  Plug 'sheerun/vim-polyglot'
-  Plug 'ryanoasis/vim-devicons'
-  Plug 'lambdalisue/glyph-palette.vim'
-  Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
-  " colorshemes
-  Plug 'tomasiser/vim-code-dark'
-  Plug 'ErichDonGubler/vim-sublime-monokai'
-  Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
-  Plug 'morhetz/gruvbox'
-  " bindings
-  Plug 'ervandew/supertab'
-  Plug 'tmsvg/pear-tree'
-  Plug 'mg979/vim-visual-multi'
+    " buffers navigation
+    Plug 'zefei/vim-wintabs'
+    Plug 'zefei/vim-wintabs-powerline'
+    " filesystem navigation
+    Plug 'preservim/nerdtree'
+    " terminal
+    Plug 'voldikss/vim-floaterm'
+    " search
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
+    " git
+    Plug 'tpope/vim-fugitive'
+    Plug 'shumphrey/fugitive-gitlab.vim' " for gitlab support GBrowse
+    Plug 'tpope/vim-rhubarb' " for github support GBrowse
+    " autocompleter
+    Plug 'ycm-core/YouCompleteMe'
+    " linter
+    Plug 'dense-analysis/ale'
+    " code runner
+    Plug 'ZaharChernenko/vim-code-runner'
+    " debugger
+    Plug 'puremourning/vimspector', { 'do': './install_gadget.py --enable-python --enable-cpp' }
+    " ui
+    Plug 'sheerun/vim-polyglot'
+    Plug 'ryanoasis/vim-devicons'
+    Plug 'lambdalisue/glyph-palette.vim'
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+    " colorshemes
+    Plug 'tomasiser/vim-code-dark'
+    Plug 'ErichDonGubler/vim-sublime-monokai'
+    Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
+    Plug 'morhetz/gruvbox'
+    " bindings
+    Plug 'ervandew/supertab'
+    Plug 'tmsvg/pear-tree'
+    Plug 'mg979/vim-visual-multi'
 call plug#end()
 
 
@@ -221,12 +221,12 @@ let g:ycm_error_symbol = 'E'
 let g:ycm_warning_symbol = 'W'
 
 let g:ycm_filetype_blacklist = {
-    \ 'tagbar' : 1,
+    \ 'tagbar' :   1,
     \ 'nerdtree' : 1,
     \ 'markdown' : 1,
-    \ 'unite' : 1,
-    \ 'text' : 1,
-    \ 'csv' : 1,
+    \ 'unite' :    1,
+    \ 'text' :     1,
+    \ 'csv' :      1,
 \ }
 
 let g:ycm_language_server = [

@@ -16,11 +16,8 @@ endfunction
 
 
 function PreSetupUNIX()
-    " browser for GBrowse and gx
-    let g:netrw_browsex_viewer = "yandex-browser"
-
     if has('gui_running')
-        set guifont=JetBrainsMono\ Nerd\ Font\ Mono\ Regular\ 11
+        set guifont=JetBrainsMono\ Nerd\ Font\ Mono\ 11
         " egmrLtT - default value, custom: right, left scroll always because of gvim bug
         set guioptions=rl
     endif
