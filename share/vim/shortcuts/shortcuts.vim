@@ -57,11 +57,6 @@ autocmd FileType floaterm noremap <buffer> <silent> <ScrollWheelDown> <Cmd>call 
 autocmd FileType floaterm tnoremap <buffer> <silent> <ScrollWheelUp> <C-\><C-n>:call ScrollUp()<Cr>
 autocmd FileType floaterm tnoremap <buffer> <silent> <ScrollWheelDown> <C-\><C-n>:call ScrollDown()<Cr>
 
-" fzf
-" this two due to the fact that the side scroll is perceived as vertical
-autocmd FileType fzf tnoremap <buffer> <silent> <ScrollWheelRight> <NOP>
-autocmd FileType fzf tnoremap <buffer> <silent> <ScrollWheelLeft> <NOP>
-
 " vimspector
 noremap ;t <Cmd>call vimspector#ToggleBreakpoint()<Cr>
 noremap ;c <Cmd>call vimspector#ClearBreakpoints()<Cr>
