@@ -229,6 +229,10 @@ let g:ycm_filetype_blacklist = {
     \ 'csv' :      1,
 \ }
 
+" Servers that support LSP Multi-Root Workspaces can spawn multiple overlapping workspaces.
+" Clangd doesn't support this, so its workspace  is naturally the project directory.
+" Pyright does support it, so you MUST specify project_root_files. Otherwise, the workspace
+" becomes the current directory of the opened file, breaking imports and crashing YCM watchers.
 let g:ycm_language_server = [
     \ {
         \ 'name': 'bash',
@@ -249,6 +253,7 @@ let g:ycm_language_server = [
         \ 'name': 'python',
         \ 'cmdline': ['pyright-langserver', '--stdio'],
         \ 'filetypes': ['python'],
+        \ 'project_root_files': ['pyproject.toml', '.git'],
     \ },
 \ ]
 
